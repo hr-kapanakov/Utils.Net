@@ -1,0 +1,9 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Utils.Net;component/Controls/Styles/TextBox.xaml" />
+        <ResourceDictionary Source="/Utils.Net;component/Controls/Styles/NumericBox.xaml"/>
+        <ResourceDictionary Source="/Utils.Net;component/Controls/Styles/ToolTip.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
