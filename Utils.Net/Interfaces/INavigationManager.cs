@@ -19,6 +19,15 @@ namespace Utils.Net.Interfaces
         /// </summary>
         event EventHandler<EventArgs<Control>> CurrentControlChanged;
 
+        /// <summary>
+        /// Gets a value indicating whether it's possible to navigate forward.
+        /// </summary>
+        bool CanNavigateForward { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether it's possible to navigate backward.
+        /// </summary>
+        bool CanNavigateBackward { get; }
 
         /// <summary>
         /// Gets or sets the capacity of the backward stack before reducing it.

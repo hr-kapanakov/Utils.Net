@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using Utils.Net.Common;
 using Utils.Net.Interfaces;
+using Utils.Net.ViewModels;
 
 namespace Utils.Net.Managers
 {
     /// <summary>
     /// Provides functionality to navigate between different <see cref="Control"/>.
     /// </summary>
-    public class NavigationManager : INavigationManager
+    public class NavigationManager : ViewModelBase, INavigationManager
     {
         #region Members
 
@@ -25,15 +26,36 @@ namespace Utils.Net.Managers
 
         #endregion
 
+        private Control currentControl;
         /// <summary>
         /// Gets the currently selected <see cref="Control"/>.
         /// </summary>
-        public Control CurrentControl { get; private set; }
+        public Control CurrentControl
+        {
+            get => currentControl;
+            private set
+            {
+                if (SetPropertyBackingField(ref currentControl, value))
+                {
+                    CurrentControlChanged?.Invoke(this, new EventArgs<Control>(CurrentControl));
+                }
+            }
+        }
 
         /// <summary>
         /// Event trigger if the a navigation command has been called.
         /// </summary>
         public event EventHandler<EventArgs<Control>> CurrentControlChanged;
+
+        /// <summary>
+        /// Gets a value indicating whether it's possible to navigate forward.
+        /// </summary>
+        public bool CanNavigateForward => forwardStack.Count > 0;
+
+        /// <summary>
+        /// Gets a value indicating whether it's possible to navigate backward.
+        /// </summary>
+        public bool CanNavigateBackward => backwardStack.Count > 0;
 
         /// <summary>
         /// Gets or sets the capacity of the backward stack before reducing it.
@@ -87,7 +109,6 @@ namespace Utils.Net.Managers
             }
 
             CurrentControl = control;
-            OnCurrentControlChanged();
         }
 
         /// <summary>
@@ -144,14 +165,6 @@ namespace Utils.Net.Managers
             }
 
             return CurrentControl != control;
-        }
-
-        /// <summary>
-        /// Handles changes of the controls and sets <see cref="CurrentControl"/>.
-        /// </summary>
-        private void OnCurrentControlChanged()
-        {
-            CurrentControlChanged?.Invoke(this, new EventArgs<Control>(CurrentControl));
         }
     }
 }

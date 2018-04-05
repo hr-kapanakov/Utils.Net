@@ -20,7 +20,7 @@ namespace Utils.Net.ViewModels
         /// Invokes property changed event for a specified changed property.
         /// </summary>
         /// <param name="propertyName">Changed property.</param>
-        protected void OnPropertyChanged(string propertyName)
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             CheckPropertyName(propertyName);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
