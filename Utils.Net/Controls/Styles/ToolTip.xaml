@@ -34,7 +34,8 @@
                                 <Image x:Name="icon"
                                        Margin="0 0 10 0"
                                        Width="{TemplateBinding IconWidth}"
-                                       Source="{TemplateBinding IconSource}"/>
+                                       Source="{TemplateBinding IconSource}"
+                                       RenderOptions.BitmapScalingMode="Fant"/>
 
                                 <ContentPresenter x:Name="PART_ContentHost"
                                                   ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" 

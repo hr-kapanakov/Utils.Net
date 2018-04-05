@@ -23,7 +23,7 @@ namespace Utils.Net.Interactivity.Behaviors
         /// </summary>
         public GridViewSortBehavior()
         {
-            command = new RelayCommand(o => SortColumn(o as GridViewColumnHeader));
+            command = new RelayCommand<GridViewColumnHeader>(h => SortColumn(h));
         }
 
         /// <summary>

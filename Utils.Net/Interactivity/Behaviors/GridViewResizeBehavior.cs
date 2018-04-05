@@ -17,6 +17,7 @@ namespace Utils.Net.Interactivity.Behaviors
         {
             base.OnAttached();
 
+            AssociatedObject.Loaded += (_, __) => ResizeColumns();
             AssociatedObject.SizeChanged += AssociatedObject_SizeChanged;
         }
 
@@ -35,19 +36,24 @@ namespace Utils.Net.Interactivity.Behaviors
         {
             if (e.WidthChanged)
             {
-                double totalWidth = AssociatedObject.ActualWidth;
-                if (AssociatedObject.View is GridView gv)
-                {
-                    var gridViewColumns = gv.Columns.Where(
-                        t => GetWidth(t) != null && GetWidth(t).ToLower() != "auto");
+                ResizeColumns();
+            }
+        }
 
-                    double allowedSpace = totalWidth - GetAllocatedSpace(gv) - 5;
-                    allowedSpace = Math.Max(0, allowedSpace);
-                    double totalPercentage = gridViewColumns.Sum(c => GetPercentage(c));
-                    foreach (var column in gridViewColumns)
-                    {
-                        SetGridViewColumnWidth(column, allowedSpace, totalPercentage);
-                    }
+        private void ResizeColumns()
+        {
+            if (AssociatedObject.View is GridView gv)
+            {
+                var gridViewColumns = gv.Columns.Where(
+                    t => GetWidth(t) != null && GetWidth(t).ToLower() != "auto");
+
+                double totalWidth = AssociatedObject.ActualWidth;
+                double allowedSpace = totalWidth - GetAllocatedSpace(gv) - 5;
+                allowedSpace = Math.Max(0, allowedSpace);
+                double totalPercentage = gridViewColumns.Sum(c => GetPercentage(c));
+                foreach (var column in gridViewColumns)
+                {
+                    SetGridViewColumnWidth(column, allowedSpace, totalPercentage);
                 }
             }
         }

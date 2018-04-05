@@ -43,3 +43,9 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("http://schemas.utils.net/interactivity", "Utils.Net.Interactivity.Behaviors")]
 [assembly: XmlnsDefinition("http://schemas.utils.net/interactivity", "Utils.Net.Interactivity.Triggers")]
 [assembly: XmlnsDefinition("http://schemas.utils.net/interactivity", "Utils.Net.Interactivity.TriggerActions")]
+
+[assembly: XmlnsPrefix("http://schemas.utils.net/controls", "ctrls")]
+[assembly: XmlnsDefinition("http://schemas.utils.net/controls", "Utils.Net.Controls")]
+
+[assembly: XmlnsPrefix("http://schemas.utils.net/converters", "convs")]
+[assembly: XmlnsDefinition("http://schemas.utils.net/converters", "Utils.Net.Converters")]
