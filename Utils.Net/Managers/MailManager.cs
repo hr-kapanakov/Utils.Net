@@ -3,13 +3,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Utils.Net.Interfaces;
 
 namespace Utils.Net.Managers
 {
     /// <summary>
-    /// Provides mail sending functionality
+    /// Provides mail sending functionality.
     /// </summary>
-    public class MailManager
+    public class MailManager : IMailManager
     {
         private string mailServer;
         private string mailUser;

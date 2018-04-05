@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Windows.Controls;
 using Utils.Net.Common;
+using Utils.Net.Interfaces;
 
 namespace Utils.Net.Managers
 {
     /// <summary>
     /// Provides functionality to navigate between different <see cref="Control"/>.
     /// </summary>
-    public class NavigationManager
+    public class NavigationManager : INavigationManager
     {
         #region Members
 

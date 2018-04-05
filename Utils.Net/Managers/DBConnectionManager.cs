@@ -1,13 +1,14 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Data.Common;
+using Utils.Net.Interfaces;
 
 namespace Utils.Net.Managers
 {
     /// <summary>
     /// Provides functionality for work with common data providers.
     /// </summary>
-    public class DBConnectionManager
+    public class DBConnectionManager : IDBConnectionManager
     {
         #region Members
 

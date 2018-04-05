@@ -29,7 +29,9 @@ https://social.msdn.microsoft.com/Forums/vstudio/en-US/93bf5bd2-e471-4414-af4c-1
 
 10. Maybe add colors resource if
 
+11. Use AutoFac to tests
+
 
 -- Sample --
 0. Add navigation bar
-1. Use AutoFac (add interfaces to library)
+1. Use AutoFac
