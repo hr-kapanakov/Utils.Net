@@ -11,5 +11,18 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
 
-    <ContentControl Content="{Binding ContentControl}"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
+            <Button Content="Back" Command="{Binding BackwardCommand}"/>
+            <ComboBox ItemsSource="{Binding Controls}" SelectedItem="{Binding SelectedControl}" MinWidth="100" Margin="5 0"/>
+            <Button Content="Next" Command="{Binding ForwardCommand}"/>
+        </StackPanel>
+
+        <ContentControl Grid.Row="1" Content="{Binding NavigationManager.CurrentControl}"/>
+    </Grid>
 </Window>
