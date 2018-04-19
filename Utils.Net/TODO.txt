@@ -29,10 +29,13 @@ https://social.msdn.microsoft.com/Forums/vstudio/en-US/93bf5bd2-e471-4414-af4c-1
 
 10. Maybe add colors resource if
 
-11. Use AutoFac to tests
+11. TreeViewExtensionBehavior - selected item binding, deselect item by clicking on blank space
+12. ListViewExtensionBehavior - selected multiple items binding, deselect item by clicking on blank space
 
+13. More IEnumurable extension - flat hierarchy linq, foreach
 
 -- Test --
 
 
 -- Sample --
+1. More pages for other controls

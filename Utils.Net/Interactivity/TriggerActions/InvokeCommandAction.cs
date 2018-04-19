@@ -17,8 +17,7 @@ namespace Utils.Net.Interactivity.TriggerActions
             DependencyProperty.Register(
                 nameof(Command), 
                 typeof(ICommand), 
-                typeof(InvokeCommandAction), 
-                null);
+                typeof(InvokeCommandAction));
 
         /// <summary>
         /// Identifies the <see cref="CommandParameter"/> dependency property.
@@ -106,10 +105,12 @@ namespace Utils.Net.Interactivity.TriggerActions
                 return;
             }
 
+            parameter = CommandParameter ?? parameter;
+
             var command = ResolveCommand();
-            if (command != null && command.CanExecute(CommandParameter))
+            if (command != null && command.CanExecute(parameter))
             {
-                command.Execute(CommandParameter);
+                command.Execute(parameter);
             }
         }
         

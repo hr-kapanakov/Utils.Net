@@ -46,10 +46,11 @@ namespace Utils.Net.ViewModels
         /// </summary>
         /// <param name="parentItem">Parent item of the current.</param>
         /// <param name="isExpanded">Indicate whether the item is expanded; default false.</param>
-        public TreeItemViewModel(TreeItemViewModel parentItem, bool isExpanded = false)
+        public TreeItemViewModel(TreeItemViewModel parentItem = null, bool isExpanded = false)
         {
             ParentItem = parentItem;
             this.isExpanded = isExpanded;
+            Children = new ObservableCollection<TreeItemViewModel>();
         }
     }
 
@@ -71,10 +72,24 @@ namespace Utils.Net.ViewModels
         /// <param name="content">Content of the item.</param>
         /// <param name="parentItem">Parent item of the current.</param>
         /// <param name="isExpanded">Indicate whether the item is expanded; default false.</param>
-        public TreeItemViewModel(T content, TreeItemViewModel parentItem, bool isExpanded = false)
+        public TreeItemViewModel(T content, TreeItemViewModel parentItem = null, bool isExpanded = false)
             : base(parentItem, isExpanded)
         {
             Content = content;
+        }
+
+
+        /// <summary>
+        /// Overrides the default ToString method. 
+        /// </summary>
+        /// <returns>String representation of the object.</returns>
+        public override string ToString()
+        {
+            if (ParentItem != null)
+            {
+                return $"{ParentItem}.{Content}";
+            }
+            return $"{(IsExpanded ? "-" : "+")}{Content}";
         }
     }
 }
