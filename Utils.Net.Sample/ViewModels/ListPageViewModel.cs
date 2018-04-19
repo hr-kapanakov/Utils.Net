@@ -21,7 +21,7 @@ namespace Utils.Net.Sample.ViewModels
 
         public ICollectionView ListViewItemsSource => CollectionViewSource.GetDefaultView(ListViewItems);
 
-        private string textFilter = "";
+        private string textFilter = string.Empty;
         public string TextFilter
         {
             get => textFilter;
@@ -72,8 +72,10 @@ namespace Utils.Net.Sample.ViewModels
         private bool Filter(ListViewItem item)
         {
             bool res = item.Column2.ToLower().Contains(TextFilter.ToLower());
+
             res &= CheckFilter.All(c => !c.IsChecked) ||
                 CheckFilter.Where(c => c.IsChecked && c.Name == item.Column1).Any();
+
             return res;
         }
     }

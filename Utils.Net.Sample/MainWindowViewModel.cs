@@ -51,7 +51,7 @@ namespace Utils.Net.Sample
             BackwardCommand = new RelayCommand(_ => NavigationManager.NavigateBackward(), _ => NavigationManager.CanNavigateBackward);
 
             NavigationManager.CurrentControlChanged += (_, __) => OnPropertyChanged(nameof(SelectedControl));
-            SelectedControl = "ListPage";
+            SelectedControl = Controls.FirstOrDefault();
         }
     }
 }
