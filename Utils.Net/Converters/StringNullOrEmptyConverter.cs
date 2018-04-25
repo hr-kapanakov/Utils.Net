@@ -8,7 +8,7 @@ namespace Utils.Net.Converters
     /// Represents the converter that converts a <see cref="string"/> to <see cref="bool"/> by calling string.IsNullOrEmpty function.
     /// </summary>
     [ValueConversion(typeof(string), typeof(bool))]
-    public class StringNullOrEpmtyConverter : IValueConverter
+    public class StringNullOrEmptyConverter : IValueConverter
     {
         /// <summary>
         /// Converts a <see cref="string"/> to <see cref="bool"/> by calling string.IsNullOrEmpty function.

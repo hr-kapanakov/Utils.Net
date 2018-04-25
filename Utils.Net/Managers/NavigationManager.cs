@@ -75,14 +75,15 @@ namespace Utils.Net.Managers
         /// </summary>
         /// <param name="control">Control to navigate to.</param>
         /// <param name="clearForwardStack">[optional] Clears the forward stack.</param>
-        public void NavigateTo(Control control, bool clearForwardStack = true)
+        /// <returns>True if successfully navigate to the new <see cref="Control"/>; otherwise, false.</returns>
+        public bool NavigateTo(Control control, bool clearForwardStack = true)
         {
             if (control != null && CurrentControl != null)
             {
                 if (control.GetType() == CurrentControl.GetType() && 
                     control.DataContext.Equals(CurrentControl.DataContext))
                 {
-                    return;
+                    return false;
                 }
             }
 
@@ -109,16 +110,18 @@ namespace Utils.Net.Managers
             }
 
             CurrentControl = control;
+            return true;
         }
 
         /// <summary>
         /// Navigates forward to the top element of the forward stack.
         /// </summary>
-        public void NavigateForward()
+        /// <returns>True if successfully navigate forward; otherwise, false.</returns>
+        public bool NavigateForward()
         {
             if (forwardStack.Count == 0)
             {
-                return;
+                return false;
             }
 
             if (CurrentControl != null)
@@ -126,28 +129,30 @@ namespace Utils.Net.Managers
                 backwardStack.Push(CurrentControl);
             }
 
-            NavigateTo(forwardStack.Pop(), false);
+            return NavigateTo(forwardStack.Pop(), false);
         }
 
         /// <summary>
         /// Navigates backward to the top element of the backward stack.
         /// </summary>
-        /// <param name="clearForwardStack">[optional] Clears the forward stack.</param>
-        public void NavigateBackward(bool clearForwardStack = false)
+        /// <param name="clearForwardStack">[optional] Clears the backward stack.</param>
+        /// <returns>True if successfully navigate backward; otherwise, false.</returns>
+        public bool NavigateBackward(bool clearForwardStack = false)
         {
             if (backwardStack.Count == 0)
             {
-                return;
+                return false;
             }
 
             var currentControl = CurrentControl;
 
-            NavigateTo(backwardStack.Pop(), clearForwardStack);
+            var res = NavigateTo(backwardStack.Pop(), clearForwardStack);
 
             if (!clearForwardStack)
             {
                 forwardStack.Push(currentControl);
             }
+            return res;
         }
 
 

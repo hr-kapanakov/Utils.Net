@@ -3,12 +3,12 @@
 namespace Utils.Net.Converters.Tests
 {
     [TestClass]
-    public class StringNullOrEpmtyConverterTests
+    public class StringNullOrEmptyConverterTests
     {
         private const string testNonEmptyString = "test";
         private const string testEmptyString = "";
 
-        private readonly StringNullOrEpmtyConverter testConverter = new StringNullOrEpmtyConverter();
+        private readonly StringNullOrEmptyConverter testConverter = new StringNullOrEmptyConverter();
 
 
         [TestMethod]

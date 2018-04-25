@@ -20,7 +20,7 @@ namespace Utils.Net.Extensions
         {
             if (enumerable == null)
             {
-                throw new ArgumentNullException("enumerable");
+                throw new ArgumentNullException(nameof(enumerable));
             }
 
             foreach (var item in enumerable)
@@ -39,7 +39,7 @@ namespace Utils.Net.Extensions
         {
             if (source == null)
             {
-                throw new ArgumentNullException("source");
+                throw new ArgumentNullException(nameof(source));
             }
 
             // find elements for add

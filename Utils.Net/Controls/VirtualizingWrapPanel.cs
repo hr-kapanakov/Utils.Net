@@ -30,7 +30,7 @@ namespace Utils.Net.Controls
                 typeof(double),
                 typeof(VirtualizingWrapPanel),
                 new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure),
-                new ValidateValueCallback(VirtualizingWrapPanel.IsWidthHeightValid));
+                new ValidateValueCallback(IsWidthHeightValid));
 
         /// <summary>
         /// Gets or sets the width of all the items contained in VirtualizingWrapPanel.
@@ -55,7 +55,7 @@ namespace Utils.Net.Controls
                 typeof(double),
                 typeof(VirtualizingWrapPanel),
                 new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure),
-                new ValidateValueCallback(VirtualizingWrapPanel.IsWidthHeightValid));
+                new ValidateValueCallback(IsWidthHeightValid));
 
         /// <summary>
         /// Gets or sets the height of all the items contained in VirtualizingWrapPanel.
@@ -98,7 +98,7 @@ namespace Utils.Net.Controls
                 new FrameworkPropertyMetadata(
                     Orientation.Horizontal, 
                     FrameworkPropertyMetadataOptions.AffectsMeasure,
-                    new PropertyChangedCallback(VirtualizingWrapPanel.OnOrientationChanged)));
+                    new PropertyChangedCallback(OnOrientationChanged)));
 
         /// <summary>
         /// Gets or sets a value that specifies the direction in which child content is placed.

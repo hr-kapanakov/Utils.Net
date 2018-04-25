@@ -68,7 +68,7 @@ namespace Utils.Net.Common
     /// Class representing generic RelayCommand. Implements ICommand interface.
     /// </summary>
     /// <typeparam name="T">The type the command parameter.</typeparam>
-    public class RelayCommand<T> : RelayCommand where T : class
+    public class RelayCommand<T> : RelayCommand
     {
         /// <summary>
         /// Initializes a new instance of the<see cref="RelayCommand{T}" /> class.
@@ -76,7 +76,7 @@ namespace Utils.Net.Common
         /// <param name="execute">Action to execute.</param>
         /// <param name="canExecute">Can execute condition.</param>
         public RelayCommand(Action<T> execute, Func<T, bool> canExecute = null)
-            : base(o => execute(o as T), o => canExecute == null || canExecute(o as T))
+            : base(o => execute((T)o), o => canExecute == null || canExecute((T)o))
         {
         }
     }

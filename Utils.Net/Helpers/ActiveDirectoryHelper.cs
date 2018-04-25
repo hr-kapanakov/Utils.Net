@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.DirectoryServices.AccountManagement;
 
-namespace Utils.NetTests.Helpers
+namespace Utils.Net.Helpers
 {
     /// <summary>
     /// Contains methods for work with Active Directory.

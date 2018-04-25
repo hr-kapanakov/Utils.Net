@@ -76,19 +76,29 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Common\EventArgsTests.cs" />
+    <Compile Include="Common\RelayCommandTests.cs" />
     <Compile Include="Converters\CombiningConverterTests.cs" />
+    <Compile Include="Converters\InverseBooleanConverterTests.cs" />
+    <Compile Include="Converters\MultiBooleanConverterTests.cs" />
+    <Compile Include="Converters\StringNullOrEmptyConverterTests.cs" />
+    <Compile Include="Converters\StringToUriConverterTests.cs" />
+    <Compile Include="Converters\TypeOfConverterTests.cs" />
     <Compile Include="Extensions\CollectionExtensionsTests.cs" />
     <Compile Include="Extensions\EnumerableExtensionsTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interactivity\AttachedObjectTests.cs" />
     <Compile Include="Interactivity\Behaviors\AutoCompleteBehaviorTests.cs" />
     <Compile Include="Interactivity\Behaviors\GridViewResizeBehaviorTests.cs" />
+    <Compile Include="Interactivity\Behaviors\ListViewExtensionBehaviorTest.cs" />
     <Compile Include="Interactivity\InteractionTests.cs" />
     <Compile Include="Interactivity\TriggerActions\InvokeCommandActionTests.cs" />
     <Compile Include="Interactivity\Triggers\EventTriggerTests.cs" />
     <Compile Include="Managers\DBConnectionManagerTests.cs" />
     <Compile Include="Managers\NavigationManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CheckableItemViewModelTests.cs" />
+    <Compile Include="ViewModels\TreeItemViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

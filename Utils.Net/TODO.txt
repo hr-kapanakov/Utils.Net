@@ -1,4 +1,6 @@
-﻿0. public the library in github (add wiki and examples) and make nuget package in nuget.org; split library in smaller ones
+﻿StyleCop, AxoCover
+
+0. public the library in github (add wiki and examples) and make nuget package in nuget.org; split library in smaller ones
 
 1.
 public void DispatchIfNecessary(Action action)
@@ -28,11 +30,6 @@ https://social.msdn.microsoft.com/Forums/vstudio/en-US/93bf5bd2-e471-4414-af4c-1
 9. CircularProgressBar
 
 10. Maybe add colors resource if
-
-11. TreeViewExtensionBehavior - selected item binding, deselect item by clicking on blank space
-12. ListViewExtensionBehavior - selected multiple items binding, deselect item by clicking on blank space
-
-13. More IEnumurable extension - flat hierarchy linq, foreach
 
 -- Test --
 

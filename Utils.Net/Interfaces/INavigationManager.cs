@@ -47,17 +47,20 @@ namespace Utils.Net.Interfaces
         /// </summary>
         /// <param name="control">Control to navigate to.</param>
         /// <param name="clearForwardStack">[optional] Clears the forward stack.</param>
-        void NavigateTo(Control control, bool clearForwardStack = true);
-        
+        /// <returns>True if successfully navigate to the new <see cref="Control"/>; otherwise, false.</returns>
+        bool NavigateTo(Control control, bool clearForwardStack = true);
+
         /// <summary>
         /// Navigates forward to the top element of the forward stack.
         /// </summary>
-        void NavigateForward();
+        /// <returns>True if successfully navigate forward; otherwise, false.</returns>
+        bool NavigateForward();
 
         /// <summary>
         /// Navigates backward to the top element of the backward stack.
         /// </summary>
         /// <param name="clearForwardStack">[optional] Clears the forward stack.</param>
-        void NavigateBackward(bool clearForwardStack = false);
+        /// <returns>True if successfully navigate backward; otherwise, false.</returns>
+        bool NavigateBackward(bool clearForwardStack = false);
     }
 }

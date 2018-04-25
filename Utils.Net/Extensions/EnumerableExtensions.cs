@@ -13,6 +13,23 @@ namespace Utils.Net.Extensions
     public static class EnumerableExtensions
     {
         /// <summary>
+        /// Flattens hierarchical structure of elements into one sequence.
+        /// </summary>
+        /// <typeparam name="T">Type of the elements.</typeparam>
+        /// <param name="enumerable">Enumerable collection to be flatten.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns><see cref="IEnumerable{T}"/> sequence of elements obtain from flattening the hierarchy.</returns>
+        public static IEnumerable<T> Flatten<T>(this IEnumerable<T> enumerable, Func<T, IEnumerable<T>> selector)
+        {
+            if (selector == null)
+            {
+                throw new ArgumentNullException(nameof(selector));
+            }
+
+            return enumerable.Concat(enumerable.SelectMany(c => selector(c).Flatten(selector)));
+        }
+
+        /// <summary>
         /// Performs the specified action on each element of the <see cref="IEnumerable{T}"/>.
         /// </summary>
         /// <typeparam name="T">Type of the elements.</typeparam>
@@ -22,7 +39,7 @@ namespace Utils.Net.Extensions
         {
             if (action == null)
             {
-                throw new ArgumentNullException("action");
+                throw new ArgumentNullException(nameof(action));
             }
 
             foreach (var item in enumerable)

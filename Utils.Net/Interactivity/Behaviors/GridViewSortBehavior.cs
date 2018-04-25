@@ -15,8 +15,8 @@ namespace Utils.Net.Interactivity.Behaviors
     public class GridViewSortBehavior : Behavior<ListView>
     {
         private RelayCommand command;
-        private static GridViewColumnHeader listViewSortColumn;
-        private static SortAdorner listViewSortAdorner;
+        private GridViewColumnHeader listViewSortColumn;
+        private SortAdorner listViewSortAdorner;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GridViewSortBehavior" /> class.

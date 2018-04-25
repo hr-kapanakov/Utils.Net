@@ -18,18 +18,18 @@ namespace Utils.Net.ViewModels
             set => SetPropertyBackingField(ref name, value);
         }
 
-        private bool isChecked;
+        private bool? isChecked;
         /// <summary>
         /// Gets or sets a value indicating whether the item is checked.
         /// </summary>
-        public bool IsChecked
+        public bool? IsChecked
         {
             get => isChecked;
             set
             {
                 if (SetPropertyBackingField(ref isChecked, value))
                 {
-                    IsCheckedChanged?.Invoke(this, new EventArgs<bool>(isChecked));
+                    IsCheckedChanged?.Invoke(this, new EventArgs<bool?>(isChecked));
                 }
             }
         }
@@ -37,7 +37,7 @@ namespace Utils.Net.ViewModels
         /// <summary>
         /// Occurs when the <see cref="IsChecked"/> property get changed.
         /// </summary>
-        public event EventHandler<EventArgs<bool>> IsCheckedChanged;
+        public event EventHandler<EventArgs<bool?>> IsCheckedChanged;
 
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Utils.Net.ViewModels
         /// </summary>
         /// <param name="name">Name of the item.</param>
         /// <param name="isChecked">Indicate whether the item is checked; default false.</param>
-        public CheckableItemViewModel(string name, bool isChecked = false)
+        public CheckableItemViewModel(string name, bool? isChecked = false)
         {
             this.name = name;
             this.isChecked = isChecked;
@@ -85,7 +85,7 @@ namespace Utils.Net.ViewModels
         /// <param name="name">Name of the item.</param>
         /// <param name="value">Value of the item.</param>
         /// <param name="isChecked">Indicate whether the item is checked; default false.</param>
-        public CheckableItemViewModel(string name, T value, bool isChecked = false)
+        public CheckableItemViewModel(string name, T value, bool? isChecked = false)
             : base(name, isChecked)
         { 
             this.value = value;

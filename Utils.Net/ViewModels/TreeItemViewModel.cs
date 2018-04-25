@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Utils.Net.Common;
+using Utils.Net.Extensions;
 
 namespace Utils.Net.ViewModels
 {
@@ -80,16 +82,28 @@ namespace Utils.Net.ViewModels
 
 
         /// <summary>
+        /// Execute <see cref="Action"/> and propagate it through the children.
+        /// </summary>
+        /// <param name="action"></param>
+        public void Propagate(Action<TreeItemViewModel<T>> action)
+        {
+            action.Invoke(this);
+            Children.OfType<TreeItemViewModel<T>>().ForEach(c => c.Propagate(action));
+        }
+
+        /// <summary>
         /// Overrides the default ToString method. 
         /// </summary>
         /// <returns>String representation of the object.</returns>
         public override string ToString()
         {
+            string res = string.Empty;
             if (ParentItem != null)
             {
-                return $"{ParentItem}.{Content}";
+                res = $"{ParentItem}.";
             }
-            return $"{(IsExpanded ? "-" : "+")}{Content}";
+            res += $"{(IsExpanded ? "-" : "+")}{Content}";
+            return res;
         }
     }
 }

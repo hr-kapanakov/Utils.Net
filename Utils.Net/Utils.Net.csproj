@@ -58,7 +58,7 @@
     <Compile Include="Converters\CombiningConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\MultiBooleanConverter.cs" />
-    <Compile Include="Converters\StringNullOrEpmtyConverter.cs" />
+    <Compile Include="Converters\StringNullOrEmptyConverter.cs" />
     <Compile Include="Converters\StringToUriConverter.cs" />
     <Compile Include="Converters\TypeOfConverter.cs" />
     <Compile Include="Dialogs\ProgressDialog.xaml.cs">
@@ -77,6 +77,8 @@
     <Compile Include="Interactivity\Behaviors\Behavior.cs" />
     <Compile Include="Interactivity\Behaviors\GridViewResizeBehavior.cs" />
     <Compile Include="Interactivity\Behaviors\GridViewSortBehavior.cs" />
+    <Compile Include="Interactivity\Behaviors\ListViewExtensionBehavior.cs" />
+    <Compile Include="Interactivity\Behaviors\TreeViewExtensionBehavior.cs" />
     <Compile Include="Interactivity\Interaction.cs" />
     <Compile Include="Interactivity\TriggerActions\InvokeCommandAction.cs" />
     <Compile Include="Interactivity\TriggerActions\TriggerAction.cs" />
@@ -90,7 +92,9 @@
     <Compile Include="Managers\NavigationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CheckableItemViewModel.cs" />
-    <Compile Include="ViewModels\TreeItemViewModel.cs" />
+    <Compile Include="ViewModels\TreeItemViewModel.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
