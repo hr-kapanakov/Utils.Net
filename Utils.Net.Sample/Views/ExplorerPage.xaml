@@ -21,20 +21,12 @@
         </Grid.ColumnDefinitions>
 
         <TreeView Grid.Column="0" Margin="5 5 0 5" ItemsSource="{Binding TreeRootItem.Children}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectedItemChanged">
-                    <i:EventTrigger.Actions>
-                        <i:InvokeCommandAction Command="{Binding SelectLabelCommand}"/>
-                    </i:EventTrigger.Actions>
-                </i:EventTrigger>
-                <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
-                    <i:EventTrigger.Actions>
-                        <i:InvokeCommandAction Command="{Binding DeselectLabelCommand}"/>
-                    </i:EventTrigger.Actions>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+            <i:Interaction.Behaviors>
+                <i:TreeViewExtensionBehavior SelectedItem="{Binding SelectedLabel, UpdateSourceTrigger=PropertyChanged}"
+                                             IsDeselectEnable="True"/>
+            </i:Interaction.Behaviors>
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                <HierarchicalDataTemplate ItemsSource="{Binding Children, UpdateSourceTrigger=PropertyChanged}">
                     <StackPanel Orientation="Horizontal" Margin="1">
                         <StackPanel.ToolTip>
                             <StackPanel Orientation="Vertical">
@@ -66,13 +58,10 @@
         <ListView Grid.Column="2" Margin="0 5 5 5" ItemsSource="{Binding ListViewItemsSource}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   SelectedItem="{Binding SelectedItem}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
-                    <i:EventTrigger.Actions>
-                        <i:InvokeCommandAction Command="{Binding DeselectItemCommand}"/>
-                    </i:EventTrigger.Actions>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+            <i:Interaction.Behaviors>
+                <i:ListViewExtensionBehavior SelectedItems="{Binding SelectedItems}"
+                                             IsDeselectEnable="True"/>
+            </i:Interaction.Behaviors>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <ctrls:VirtualizingWrapPanel/>

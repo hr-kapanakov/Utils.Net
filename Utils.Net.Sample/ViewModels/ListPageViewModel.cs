@@ -36,7 +36,7 @@ namespace Utils.Net.Sample.ViewModels
 
         public ObservableCollection<CheckableItemViewModel> CheckFilter { get; }
 
-        public string CheckFilterString => string.Join(", ", CheckFilter.Where(c => c.IsChecked));
+        public string CheckFilterString => string.Join(", ", CheckFilter.Where(c => c.IsChecked == true));
 
 
         public ListPageViewModel()
@@ -73,8 +73,8 @@ namespace Utils.Net.Sample.ViewModels
         {
             bool res = item.Column2.ToLower().Contains(TextFilter.ToLower());
 
-            res &= CheckFilter.All(c => !c.IsChecked) ||
-                CheckFilter.Where(c => c.IsChecked && c.Name == item.Column1).Any();
+            res &= CheckFilter.All(c => c.IsChecked == false) ||
+                CheckFilter.Where(c => c.IsChecked == true && c.Name == item.Column1).Any();
 
             return res;
         }
