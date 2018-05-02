@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Utils.Net.Interactivity.Tests
@@ -19,6 +20,9 @@ namespace Utils.Net.Interactivity.Tests
             var testAttachedObject = new TestAttachedObject();
             testAttachedObject.Attach(testDependencyObject);
             Assert.AreEqual(testAttachedObject.AssociatedObject, testDependencyObject);
+
+            testAttachedObject.Attach(testDependencyObject); // for code coverage
+            Assert.ThrowsException<InvalidOperationException>(() => testAttachedObject.Attach(null));
         }
 
         [TestMethod]

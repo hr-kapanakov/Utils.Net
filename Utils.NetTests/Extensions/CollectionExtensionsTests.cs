@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,6 +13,8 @@ namespace Utils.Net.Extensions.Tests
         [TestMethod]
         public void AddRangeTest()
         {
+            Assert.ThrowsException<ArgumentNullException>(() => testCollection.AddRange(null));
+
             var list = Enumerable.Range(0, 10).ToList();
             testCollection.AddRange(list);
             Assert.IsTrue(list.All(i => testCollection.Contains(i)));
@@ -20,6 +23,8 @@ namespace Utils.Net.Extensions.Tests
         [TestMethod]
         public void UpdateCollectionTest()
         {
+            Assert.ThrowsException<ArgumentNullException>(() => testCollection.UpdateCollection(null));
+
             var list = Enumerable.Range(0, 10).ToList();
             testCollection.UpdateCollection(list);
             CollectionAssert.AreEqual(testCollection, list);

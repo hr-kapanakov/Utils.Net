@@ -1,17 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Utils.Net.Converters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Utils.Net.Converters.Tests
 {
     [TestClass]
     public class InverseBooleanConverterTests
     {
-        private const bool testValue = true;
+        private const bool TestValue = true;
 
         private readonly InverseBooleanConverter testConverter = new InverseBooleanConverter();
 
@@ -19,17 +13,17 @@ namespace Utils.Net.Converters.Tests
         [TestMethod]
         public void ConvertTest()
         {
-            var inverse = testConverter.Convert(testValue, null, null, null);
+            var inverse = testConverter.Convert(TestValue, null, null, null);
             Assert.IsInstanceOfType(inverse, typeof(bool));
-            Assert.AreEqual(inverse, !testValue);
+            Assert.AreEqual(inverse, !TestValue);
         }
 
         [TestMethod]
         public void ConvertBackTest()
         {
-            var inverse = testConverter.ConvertBack(!testValue, null, null, null);
+            var inverse = testConverter.ConvertBack(!TestValue, null, null, null);
             Assert.IsInstanceOfType(inverse, typeof(bool));
-            Assert.AreEqual(inverse, testValue);
+            Assert.AreEqual(inverse, TestValue);
         }
     }
 }

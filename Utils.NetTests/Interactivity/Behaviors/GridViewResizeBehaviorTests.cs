@@ -9,6 +9,7 @@ namespace Utils.Net.Interactivity.Behaviors.Tests
     {
         private ListView testListView;
         private GridView testGridView;
+        private Behavior testBehavior;
 
         [TestInitialize]
         public void SetUp()
@@ -21,8 +22,14 @@ namespace Utils.Net.Interactivity.Behaviors.Tests
             ScrollViewer.SetVerticalScrollBarVisibility(testGridView, ScrollBarVisibility.Hidden);
             testListView.View = testGridView;
 
-            GridViewResizeBehavior behavior = new GridViewResizeBehavior();
-            behavior.Attach(testListView);
+            testBehavior = new GridViewResizeBehavior();
+            testBehavior.Attach(testListView);
+        }
+
+        [TestCleanup]
+        public void CleanUp()
+        {
+            testBehavior.Detach();
         }
 
         [TestMethod]

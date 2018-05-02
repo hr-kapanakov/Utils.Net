@@ -6,7 +6,7 @@ namespace Utils.Net.Converters.Tests
     [TestClass]
     public class TypeOfConverterTests
     {
-        private const string testObject = "test";
+        private const string TestObject = "test";
 
         private readonly TypeOfConverter testConverter = new TypeOfConverter();
 
@@ -14,9 +14,17 @@ namespace Utils.Net.Converters.Tests
         [TestMethod]
         public void ConvertTest()
         {
-            var type = testConverter.Convert(testObject, null, null, null);
+            Assert.IsNull(testConverter.Convert(null, null, null, null));
+
+            var type = testConverter.Convert(TestObject, null, null, null);
             Assert.IsInstanceOfType(type, typeof(Type));
-            Assert.AreEqual(type, testObject.GetType());
+            Assert.AreEqual(type, TestObject.GetType());
+        }
+
+        [TestMethod]
+        public void ConvertBackTest()
+        {
+            Assert.ThrowsException<InvalidOperationException>(() => testConverter.ConvertBack(TestObject, null, null, null));
         }
     }
 }

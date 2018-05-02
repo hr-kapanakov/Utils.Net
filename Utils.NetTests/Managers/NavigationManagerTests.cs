@@ -15,7 +15,7 @@ namespace Utils.Net.Managers.Tests
         private static UserControl testFirstUserControl;
         private static UserControl testSecondUserControl;
 
-        private enum TestName
+        private enum TestType
         {
             /// <summary>
             /// NavigateTo Test
@@ -34,13 +34,13 @@ namespace Utils.Net.Managers.Tests
         #endregion
 
 
-        private void TestSetup(TestName testName)
+        private void TestSetup(TestType testType)
         {
             // Navigation to an user control
             testFirstUserControl = new UserControl() { DataContext = new DummyUserControlViewModel() { ControlTitle = TestFirstUserControlTitle } };
             navManager.NavigateTo(testFirstUserControl);
 
-            if (testName == TestName.NavigateBackwordTest || testName == TestName.NavigateForwardTest)
+            if (testType == TestType.NavigateBackwordTest || testType == TestType.NavigateForwardTest)
             {
                 // Navigating to new user control, so we will have one user control in the PageManagers's backward stack 
                 testSecondUserControl = new UserControl() { DataContext = new DummyUserControlViewModel() { ControlTitle = TestSecondUserControlTitle } };
@@ -60,26 +60,32 @@ namespace Utils.Net.Managers.Tests
         [TestMethod]
         public void NavigateToTest()
         {
-            TestSetup(TestName.NavigateToTest);
+            TestSetup(TestType.NavigateToTest);
 
             // Init - just test the basic functionality for navigation
-            Assert.IsTrue((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle.Equals(TestFirstUserControlTitle));
+            Assert.AreEqual((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle, TestFirstUserControlTitle);
 
             // Navigating to a new user control, so we will have one user control in the PageManagers's backward stack
             testSecondUserControl = new UserControl() { DataContext = new DummyUserControlViewModel() { ControlTitle = TestSecondUserControlTitle } };
             navManager.NavigateTo(testSecondUserControl);
-            Assert.IsTrue((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle.Equals(TestSecondUserControlTitle));
+            Assert.AreEqual((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle, TestSecondUserControlTitle);
 
             // Check if skipping navigation to the same user control is working correctly
-            navManager.NavigateTo(testSecondUserControl);
-            navManager.NavigateBackward();
-            Assert.IsTrue((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle.Equals(TestFirstUserControlTitle));
+            Assert.IsFalse(navManager.NavigateTo(testSecondUserControl));
+            navManager.NavigateTo(testFirstUserControl);
+            Assert.IsTrue(navManager.CanNavigateBackward);
+            Assert.IsTrue(navManager.NavigateBackward());
+            Assert.IsTrue(navManager.NavigateBackward());
+            Assert.IsFalse(navManager.NavigateBackward());
+            Assert.IsFalse(navManager.CanNavigateBackward);
+            Assert.IsTrue(navManager.CanNavigateForward);
+            Assert.AreEqual((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle, TestFirstUserControlTitle);
         }
 
         [TestMethod]
         public void NavigateBackwardTest()
         {
-            TestSetup(TestName.NavigateBackwordTest);
+            TestSetup(TestType.NavigateBackwordTest);
 
             // Testing if navigation backward works correctly
             Assert.IsTrue((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle.Equals(TestFirstUserControlTitle));
@@ -88,16 +94,35 @@ namespace Utils.Net.Managers.Tests
             navManager.NavigateForward();
             navManager.NavigateBackward(true);
             navManager.NavigateForward();
-            Assert.IsTrue((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle.Equals(TestFirstUserControlTitle));
+            Assert.AreEqual((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle, TestFirstUserControlTitle);
         }
 
         [TestMethod]
         public void NavigateForwardTest()
         {
-            TestSetup(TestName.NavigateForwardTest);
+            TestSetup(TestType.NavigateForwardTest);
 
             navManager.NavigateForward();
-            Assert.IsTrue((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle.Equals(TestSecondUserControlTitle));
+            Assert.AreEqual((navManager.CurrentControl.DataContext as DummyUserControlViewModel).ControlTitle, TestSecondUserControlTitle);
+        }
+
+        [TestMethod]
+        public void RemoveFromBackwardStackTest()
+        {
+            // for code coverage
+            TestSetup(TestType.NavigateForwardTest);
+
+            for (int i = 0; i < navManager.BackwardStackCapacity + 1; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    navManager.NavigateTo(testFirstUserControl);
+                }
+                else
+                {
+                    navManager.NavigateTo(testSecondUserControl);
+                }
+            }
         }
 
         /// <summary>

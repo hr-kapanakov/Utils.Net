@@ -11,18 +11,25 @@ namespace Utils.Net.Interactivity.Behaviors.Tests
     {
         private TextBox testTextBox;
         private List<string> testAutoCompleteList = new List<string>() { "bc", "bcd", "abcd", "abcde" };
+        private AutoCompleteBehavior testBehavior;
 
         [TestInitialize]
         public void SetUp()
         {
             testTextBox = new TextBox();
 
-            AutoCompleteBehavior behavior = new AutoCompleteBehavior
+            testBehavior = new AutoCompleteBehavior
             {
                 ItemsSource = testAutoCompleteList,
                 StringComparison = System.StringComparison.InvariantCultureIgnoreCase
             };
-            behavior.Attach(testTextBox);
+            testBehavior.Attach(testTextBox);
+        }
+
+        [TestCleanup]
+        public void CleanUp()
+        {
+            testBehavior.Detach();
         }
 
         [TestMethod]
@@ -33,15 +40,22 @@ namespace Utils.Net.Interactivity.Behaviors.Tests
 
             CollectionAssert.Contains(testAutoCompleteList, testTextBox.Text);
             CollectionAssert.Contains(testAutoCompleteList, testString + testTextBox.SelectedText);
+
+            // for code coverage
+            testTextBox.Text = testString.Substring(0, 1);
+            testTextBox.Text = string.Empty;
+
+            testBehavior.ItemsSource = null;
+            testTextBox.Text = testString;
         }
 
         [TestMethod]
         public void SetAutoCompleteValueTest()
         {
             /*
-            TestTextBox.Text = "ab";
+            testTextBox.Text = "ab";
 
-            TestTextBox.RaiseEvent(
+            testTextBox.RaiseEvent(
                 new KeyEventArgs(
                     Keyboard.PrimaryDevice,
                     new System.Windows.Interop.HwndSource(0, 0, 0, 0, 0, "", System.IntPtr.Zero),

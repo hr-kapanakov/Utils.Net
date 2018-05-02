@@ -29,9 +29,7 @@ namespace Utils.Net.Converters.Tests
         [TestMethod]
         public void ConvertBackTest()
         {
-            /* TODO: need 2 backable converters
-            Assert.Fail();
-            */
+            // TODO: need 2 backable converters
         }
     }
 }

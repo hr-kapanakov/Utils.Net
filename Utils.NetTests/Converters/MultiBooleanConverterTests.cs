@@ -1,10 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Utils.Net.Converters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Utils.Net.Converters.Tests
 {
@@ -27,6 +22,12 @@ namespace Utils.Net.Converters.Tests
             result = testConverter.Convert(testArray2, null, null, null);
             Assert.IsInstanceOfType(result, typeof(bool));
             Assert.AreEqual(result, false);
+        }
+
+        [TestMethod]
+        public void ConvertBackTest()
+        {
+            Assert.ThrowsException<InvalidOperationException>(() => testConverter.ConvertBack(testArray1, null, null, null));
         }
     }
 }

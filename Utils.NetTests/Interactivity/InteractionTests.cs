@@ -26,9 +26,13 @@ namespace Utils.Net.Interactivity.Tests
             Assert.IsNotNull(behaviors);
             Assert.AreEqual(behaviors.Count, 0);
 
+            behaviors = Interaction.GetBehaviors(testDependencyObject); // for code coverage
             behaviors.Add(behavior);
             Assert.AreEqual(behaviors.Count, 1);
             Assert.AreEqual(behavior.AssociatedObject, testDependencyObject);
+
+            behaviors.Remove(behavior);
+            Assert.AreEqual(behaviors.Count, 0);
         }
 
         [TestMethod]
@@ -39,9 +43,13 @@ namespace Utils.Net.Interactivity.Tests
             Assert.IsNotNull(triggers);
             Assert.AreEqual(triggers.Count, 0);
 
+            triggers = Interaction.GetTriggers(testDependencyObject); // for code coverage
             triggers.Add(trigger);
             Assert.AreEqual(triggers.Count, 1);
             Assert.AreEqual(trigger.AssociatedObject, testDependencyObject);
+
+            triggers.Remove(trigger);
+            Assert.AreEqual(triggers.Count, 0);
         }
     }
 }

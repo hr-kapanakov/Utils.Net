@@ -34,10 +34,7 @@ namespace Utils.Net.Managers.Tests
         [TestCleanup]
         public void CleanUp()
         {
-            if (testManager.IsConnected)
-            {
-                testManager.Disconnect();
-            }
+            testManager.Disconnect();
 
             while (File.Exists(testDbPath))
             {
@@ -132,13 +129,13 @@ namespace Utils.Net.Managers.Tests
                                              "Name VARCHAR(45) NOT NULL DEFAULT ''," +
                                              "Score INT NULL)";
 
-                SQLiteCommand createTableCommand = new SQLiteCommand(sqlCreateTableQuery, tmpConn);
+                var createTableCommand = new SQLiteCommand(sqlCreateTableQuery, tmpConn);
                 createTableCommand.ExecuteNonQuery();
                 createTableCommand.Dispose();
 
                 var sqlInsertQuery = $"Insert Into TestTable (Name, Score) Values ('{testStoredRecord.Key}', {testStoredRecord.Value})";
 
-                SQLiteCommand insertRecordCommand = new SQLiteCommand(sqlInsertQuery, tmpConn);
+                var insertRecordCommand = new SQLiteCommand(sqlInsertQuery, tmpConn);
                 insertRecordCommand.ExecuteNonQuery();
                 insertRecordCommand.Dispose();
             }
