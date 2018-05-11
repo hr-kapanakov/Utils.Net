@@ -31,6 +31,8 @@ https://social.msdn.microsoft.com/Forums/vstudio/en-US/93bf5bd2-e471-4414-af4c-1
 
 10. Maybe add colors resource used in different styles / ThemeManager?
 
+11. Write "deploy script" which should build, generate wiki, push to git and nuget
+
 -- Test --
 
 
