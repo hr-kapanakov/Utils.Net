@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="/Utils.Net;component/Styles/ButtonStyles.xaml"/>
+        <ResourceDictionary Source="/Utils.Net;component/Styles/GridViewStyles.xaml"/>
+
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

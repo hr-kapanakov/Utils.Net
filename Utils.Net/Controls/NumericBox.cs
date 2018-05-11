@@ -150,11 +150,11 @@ namespace Utils.Net.Controls
 
 
         /// <summary>
-        /// Identifies the <see cref="Increment"/> dependency property.
+        /// Identifies the <see cref="Step"/> dependency property.
         /// </summary>
-        public static readonly DependencyProperty IncrementProperty =
+        public static readonly DependencyProperty StepProperty =
             DependencyProperty.Register(
-                nameof(Increment),
+                nameof(Step),
                 typeof(double),
                 typeof(NumericBox),
                 new PropertyMetadata(1.0));
@@ -162,10 +162,10 @@ namespace Utils.Net.Controls
         /// <summary>
         /// Gets or sets the increment/decrement step of the <see cref="Value"/>.
         /// </summary>
-        public double Increment
+        public double Step
         {
-            get => (double)GetValue(IncrementProperty);
-            set => SetValue(IncrementProperty, value);
+            get => (double)GetValue(StepProperty);
+            set => SetValue(StepProperty, value);
         }
 
         #endregion
@@ -307,7 +307,7 @@ namespace Utils.Net.Controls
             base.OnMouseWheel(e);
 
             int deltaLines = e.Delta / Mouse.MouseWheelDeltaForOneLine;
-            Value += Increment * deltaLines;
+            Value += Step * deltaLines;
         }
 
         /// <summary>
@@ -322,22 +322,22 @@ namespace Utils.Net.Controls
 
             if (e.Key == Key.Up)
             {
-                Value += Increment;
+                Value += Step;
             }
             else if (e.Key == Key.Down)
             {
-                Value -= Increment;
+                Value -= Step;
             }
         }
 
         private void UpButton_Click(object sender, RoutedEventArgs e)
         {
-            Value += Increment;
+            Value += Step;
         }
 
         private void DownButton_Click(object sender, RoutedEventArgs e)
         {
-            Value -= Increment;
+            Value -= Step;
         }
 
 

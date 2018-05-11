@@ -3,12 +3,13 @@
                     xmlns:local="clr-namespace:Utils.Net.Controls">
 
     <Style TargetType="{x:Type local:NumericBox}">
+        <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="#FFABADB3"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="5"/>
-        <Setter Property="Background" Value="White"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Height" Value="25"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:NumericBox}">

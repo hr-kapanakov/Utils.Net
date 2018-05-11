@@ -4,10 +4,10 @@
     xmlns:local="clr-namespace:Utils.Net.Controls">
 
     <Style TargetType="{x:Type local:TextBox}">
+        <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="#FFABADB3"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="5"/>
-        <Setter Property="Background" Value="White"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
