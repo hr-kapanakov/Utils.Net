@@ -1,8 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Data;
-using Utils.Net.Common;
 using Utils.Net.ViewModels;
 
 namespace Utils.Net.Sample.ViewModels
@@ -33,6 +33,8 @@ namespace Utils.Net.Sample.ViewModels
                 }
             }
         }
+
+        public IEnumerable<string> AutoCompleteValues => ListViewItems.Select(i => i.Column2);
 
         public ObservableCollection<CheckableItemViewModel> CheckFilter { get; }
 

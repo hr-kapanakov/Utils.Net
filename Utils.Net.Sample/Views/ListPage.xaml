@@ -8,11 +8,11 @@
              xmlns:i="http://schemas.utils.net/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
+    
     <UserControl.DataContext>
         <vm:ListPageViewModel/>
     </UserControl.DataContext>
-    
+        
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -25,9 +25,12 @@
 
         <ctrls:TextBox Grid.Column="0" Grid.Row="0" Margin="5" Hint="Search" ShowClearButton="True"
                        IconSource="http://www.free-icons-download.net/images/search-icon-23710.png"
-                       Text="{Binding TextFilter, UpdateSourceTrigger=PropertyChanged}">
+                       Text="{Binding TextFilter, UpdateSourceTrigger=PropertyChanged, Delay=300}">
+            <i:Interaction.Behaviors>
+                <i:AutoCompleteBehavior ItemsSource="{Binding AutoCompleteValues}" StringComparison="InvariantCultureIgnoreCase"/>
+            </i:Interaction.Behaviors>
             <ctrls:TextBox.ToolTip>
-                <ctrls:ToolTip Label="Search" Hotkey="Ctrl+F" Content="Search text box"
+                <ctrls:ToolTip Label="Search" Hotkey="Ctrl+S" Content="Search text box"
                                IconSource="http://www.free-icons-download.net/images/search-icon-23710.png"/>
             </ctrls:TextBox.ToolTip>
         </ctrls:TextBox>
@@ -47,7 +50,7 @@
                 <i:GridViewSortBehavior/>
             </i:Interaction.Behaviors>
             <ListView.View>
-                <GridView>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
                     <GridViewColumn i:GridViewResizeBehavior.Width="100">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Column1" i:GridViewSortBehavior.SortBy="Column1"/>

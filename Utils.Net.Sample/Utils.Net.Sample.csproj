@@ -63,11 +63,17 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\ExplorerPageViewModel.cs" />
     <Compile Include="ViewModels\ListPageViewModel.cs" />
+    <Compile Include="ViewModels\OthersPageViewModel.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Views\ExplorerPage.xaml.cs">
       <DependentUpon>ExplorerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OthersPage.xaml.cs">
+      <DependentUpon>OthersPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,6 +92,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OthersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
