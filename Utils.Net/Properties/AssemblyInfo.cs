@@ -9,9 +9,9 @@ using System.Windows.Markup;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Utils.Net")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Utility library for .Net framework and WPF")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Hristo Kapanakov")]
 [assembly: AssemblyProduct("Utils.Net")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]

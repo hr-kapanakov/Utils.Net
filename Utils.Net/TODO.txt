@@ -1,6 +1,9 @@
 ﻿StyleCop, AxoCover
 
-* public the library in github (add wiki and examples) and make nuget package in nuget.org; split library in smaller ones
+* public the library in github (add wiki and examples, license) and make nuget package in nuget.org; split library in smaller ones - WPF, Core, etc.
+.\MarkdownGenerator.exe Utils.Net\bin\Release\Utils.Net.dll Utils.Net.wiki
+.\nuget.exe pack .\Utils.Net\ -properties Configuration=Release -symbols
+.\nuget.exe push .\MyUtils.Net.0.1.6709.28627.nupkg <API_KEY> -Source https://api.nuget.org/v3/index.json
 
 * Validation Rules - https://docs.microsoft.com/en-us/dotnet/framework/wpf/app-development/dialog-boxes-overview (Validating User-Provided Data)
 
