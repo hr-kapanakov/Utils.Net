@@ -16,7 +16,7 @@ namespace Utils.Net.Extensions
         /// Flattens hierarchical structure of elements into one sequence.
         /// </summary>
         /// <typeparam name="T">Type of the elements.</typeparam>
-        /// <param name="enumerable">Enumerable collection to be flatten.</param>
+        /// <param name="enumerable">Enumerable to be flatten.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns><see cref="IEnumerable{T}"/> sequence of elements obtain from flattening the hierarchy.</returns>
         public static IEnumerable<T> Flatten<T>(this IEnumerable<T> enumerable, Func<T, IEnumerable<T>> selector)
@@ -30,10 +30,23 @@ namespace Utils.Net.Extensions
         }
 
         /// <summary>
+        /// Returns a subset of the elements with set start index and count.
+        /// </summary>
+        /// <typeparam name="T">Type of the elements.</typeparam>
+        /// <param name="enumerable">Enumerable to get subset of.</param>
+        /// <param name="start">Index of the starting element.</param>
+        /// <param name="count">Elements count to be added to the subset.</param>
+        /// <returns><see cref="IEnumerable{T}"/> subset of the elements</returns>
+        public static IEnumerable<T> Range<T>(this IEnumerable<T> enumerable, int start, int count)
+        {
+            return enumerable.Skip(start).Take(count);
+        }
+
+        /// <summary>
         /// Performs the specified action on each element of the <see cref="IEnumerable{T}"/>.
         /// </summary>
         /// <typeparam name="T">Type of the elements.</typeparam>
-        /// <param name="enumerable">Enumerable collection to performs action over.</param>
+        /// <param name="enumerable">Enumerable to performs action over.</param>
         /// <param name="action">The <see cref="Action{T}"/> to perform on each element of the <see cref="IEnumerable{T}"/>.</param>
         public static void ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
         {

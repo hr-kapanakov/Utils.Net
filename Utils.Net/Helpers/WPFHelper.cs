@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace Utils.Net.Helpers
 {
@@ -13,18 +15,56 @@ namespace Utils.Net.Helpers
         /// Try to find first visual ancestor from the specified type of the <see cref="DependencyObject"/>.
         /// </summary>
         /// <typeparam name="T">Type of the searching visual ancestor.</typeparam>
-        /// <param name="dependencyObject">Object which ancestor is to be find.</param>
+        /// <param name="dependencyObject">Object where a predecessor has to be found.</param>
+        /// <param name="condition">Optional condition that search element must meet.</param>
         /// <returns>Visual ancestor of the specified type if found; otherwise null.</returns>
-        public static T FindVisualAncestor<T>(this DependencyObject dependencyObject) where T : class
+        public static T FindVisualAncestor<T>(this DependencyObject dependencyObject, Func<T, bool> condition = null) where T : DependencyObject
         {
             var target = dependencyObject;
 
-            while (target != null && !(target is T))
+            while (target != null)
             {
                 target = VisualTreeHelper.GetParent(target);
+
+                if ((target is T result) && (condition == null || condition(result)))
+                {
+                    break;
+                }
             }
             
             return target as T;
+        }
+
+        /// <summary>
+        /// Try to find first visual descendant from the specified type of the <see cref="DependencyObject"/>.
+        /// </summary>
+        /// <typeparam name="T">Type of the searching visual descendant.</typeparam>
+        /// <param name="dependencyObject">Object on which a descendant must be found.</param>
+        /// <param name="condition">Optional condition that search element must meet</param>
+        /// <returns>Visual descendant of the specified type if found; otherwise null.</returns>
+        public static T FindVisualDescendant<T>(this DependencyObject dependencyObject, Func<T, bool> condition = null) where T : DependencyObject
+        {
+            if (dependencyObject == null)
+            {
+                return null;
+            }
+
+            var count = VisualTreeHelper.GetChildrenCount(dependencyObject);
+            for (int i = 0; i < count; i++)
+            {
+                var child = VisualTreeHelper.GetChild(dependencyObject, i);
+                if ((child is T result) && (condition == null || condition(result)))
+                {
+                    return result;
+                }
+
+                var next = FindVisualDescendant(child, condition);
+                if (next != null)
+                {
+                    return next;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -57,6 +97,42 @@ namespace Utils.Net.Helpers
                 }
             }
             return null;
+        }
+
+        /// <summary>
+        /// Executes the specified <see cref="Action"/> synchronously on the thread the set <see cref="Dispatcher"/> is associated with.
+        /// </summary>
+        /// <param name="dispatcher">Dispatcher on which thread will be executed the set <see cref="Action"/>.</param>
+        /// <param name="callback">A delegate to invoke through the dispatcher.</param>
+        public static void CheckAndInvoke(this Dispatcher dispatcher, Action callback)
+        {
+            if (!dispatcher.CheckAccess())
+            {
+                dispatcher.Invoke(callback);
+            }
+            else
+            {
+                callback.Invoke();
+            }
+        }
+
+        /// <summary>
+        /// Executes the specified <see cref="Func{TResult}"/> synchronously on the thread the set <see cref="Dispatcher"/> is associated with.
+        /// </summary>
+        /// <typeparam name="T">Type of the expected result.</typeparam>
+        /// <param name="dispatcher">Dispatcher on which thread will be executed the set <see cref="Func{TResult}"/>.</param>
+        /// <param name="callback">A delegate to invoke through the dispatcher.</param>
+        /// <returns>The return value type of the specified delegate</returns>
+        public static T CheckAndInvoke<T>(this Dispatcher dispatcher, Func<T> callback)
+        {
+            if (!dispatcher.CheckAccess())
+            {
+                return dispatcher.Invoke(callback);
+            }
+            else
+            {
+                return callback.Invoke();
+            }
         }
     }
 }

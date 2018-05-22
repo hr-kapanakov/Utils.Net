@@ -16,7 +16,7 @@ namespace Utils.Net.Extensions
         /// <typeparam name="T">Type of the elements.</typeparam>
         /// <param name="collection">The collection at the end of which the elements will be added.</param>
         /// <param name="enumerable">The enumerable whose elements should be added to the end of the <see cref="Collection{T}"/>.</param>
-        public static void AddRange<T>(this Collection<T> collection, IEnumerable<T> enumerable)
+        public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> enumerable)
         {
             if (enumerable == null)
             {
@@ -35,7 +35,7 @@ namespace Utils.Net.Extensions
         /// <typeparam name="T">Type of the elements.</typeparam>
         /// <param name="dist">Collection to be updated.</param>
         /// <param name="source"><see cref="IEnumerable{T}"/> to which elements the destination collection will be updated.</param>
-        public static void UpdateCollection<T>(this Collection<T> dist, IEnumerable<T> source)
+        public static void UpdateCollection<T>(this ICollection<T> dist, IEnumerable<T> source)
         {
             if (source == null)
             {

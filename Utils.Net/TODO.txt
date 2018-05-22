@@ -1,40 +1,34 @@
 ﻿StyleCop, AxoCover
 
-0. public the library in github (add wiki and examples) and make nuget package in nuget.org; split library in smaller ones
+* public the library in github (add wiki and examples) and make nuget package in nuget.org; split library in smaller ones
 
-1.
-public void DispatchIfNecessary(Action action)
-{
-    if (!Dispatcher.CheckAccess())
-        Dispatcher.Invoke(action);
-    else
-        action.Invoke();
-}
+* Validation Rules - https://docs.microsoft.com/en-us/dotnet/framework/wpf/app-development/dialog-boxes-overview (Validating User-Provided Data)
 
-2. Validation Rules - https://docs.microsoft.com/en-us/dotnet/framework/wpf/app-development/dialog-boxes-overview (Validating User-Provided Data)
-
-3. Folder Selection Dialog
+* Folder Selection Dialog
 https://msdn.microsoft.com/en-us/library/microsoft.win32.openfiledialog(v=vs.110).aspx
 https://msdn.microsoft.com/en-us/library/system.windows.forms.folderbrowserdialog%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396
 
-4. Settings Dialog - based on attributes
+* Settings Dialog - based on attributes
 
-5. UI Automation testing - https://github.com/TestStack/White based on Microsoft UI Automation
+* UI Automation testing - https://github.com/TestStack/White based on Microsoft UI Automation
 
-6. RelativeFontSizeHelper
+* RelativeFontSizeHelper
 https://social.msdn.microsoft.com/Forums/vstudio/en-US/93bf5bd2-e471-4414-af4c-11576c348508/wpf-relative-font-size?forum=wpf
 
-7. TransparentListView, Animated styles (expander, listview)
+* TransparentListView, Animated styles (expander, listview)
 
-8. Custom combobox
-9. CircularProgressBar
+* Custom combobox
+* CircularProgressBar
 
-10. Maybe add colors resource used in different styles / ThemeManager?
+* Maybe add colors resource used in different styles / ThemeManager?
 
-11. Write "deploy script" which should build, generate wiki, push to git and nuget
+* Write "deploy script" which should build, generate wiki, push to git and nuget
+
+* May be add WaitFor function in UITester to some helper
 
 -- Test --
+No UI Code Coverage 40.59% / 43.07%
 
 
 -- Sample --
-1. More pages for other controls
+* More pages for other controls
