@@ -29,6 +29,13 @@ namespace Utils.Net.Extensions.Tests
         }
 
         [TestMethod]
+        public void RangeTest()
+        {
+            var subSet = testEnumerable.Range(3, 5).ToList();
+            CollectionAssert.AreEqual(subSet, Enumerable.Range(3, 5).ToList());
+        }
+
+        [TestMethod]
         public void ForEachTest()
         {
             Assert.ThrowsException<ArgumentNullException>(() => testEnumerable.ForEach(null));

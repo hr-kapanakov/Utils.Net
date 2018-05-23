@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Common\EventArgsTests.cs" />
     <Compile Include="Common\RelayCommandTests.cs" />
+    <Compile Include="Controls\NumericBoxTests.cs" />
     <Compile Include="Converters\CombiningConverterTests.cs" />
     <Compile Include="Converters\InverseBooleanConverterTests.cs" />
     <Compile Include="Converters\MultiBooleanConverterTests.cs" />
@@ -85,7 +86,9 @@
     <Compile Include="Converters\StringToUriConverterTests.cs" />
     <Compile Include="Converters\TypeOfConverterTests.cs" />
     <Compile Include="Extensions\CollectionExtensionsTests.cs" />
-    <Compile Include="Extensions\EnumerableExtensionsTests.cs" />
+    <Compile Include="Extensions\EnumerableExtensionsTests.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interactivity\AttachedObjectTests.cs" />
     <Compile Include="Interactivity\Behaviors\AutoCompleteBehaviorTests.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="Managers\DBConnectionManagerTests.cs" />
     <Compile Include="Managers\NavigationManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UITester.cs" />
     <Compile Include="ViewModels\CheckableItemViewModelTests.cs" />
     <Compile Include="ViewModels\TreeItemViewModelTests.cs" />
   </ItemGroup>
@@ -107,6 +111,10 @@
     <None Include="Settings.StyleCop" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Utils.Net.Sample\Utils.Net.Sample.csproj">
+      <Project>{166b538b-92ed-4ccb-9b92-360a19e2673d}</Project>
+      <Name>Utils.Net.Sample</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utils.Net\Utils.Net.csproj">
       <Project>{54E05CDB-E057-42D8-BDBF-C479317B4EBF}</Project>
       <Name>Utils.Net</Name>

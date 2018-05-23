@@ -55,17 +55,18 @@ namespace Utils.Net.Interactivity.Behaviors.Tests
             /*
             testTextBox.Text = "ab";
 
+            testTextBox.Focus();
             testTextBox.RaiseEvent(
                 new KeyEventArgs(
                     Keyboard.PrimaryDevice,
                     new System.Windows.Interop.HwndSource(0, 0, 0, 0, 0, "", System.IntPtr.Zero),
                     0,
                     Key.Enter)
-                {
+                {   
                     RoutedEvent = Keyboard.PreviewKeyDownEvent
                 });
-            CollectionAssert.Contains(TestAutoCompleteList, TestTextBox.Text);
-            Assert.IsTrue(string.IsNullOrEmpty(TestTextBox.SelectedText));
+            CollectionAssert.Contains(testAutoCompleteList, testTextBox.Text);
+            Assert.IsTrue(string.IsNullOrEmpty(testTextBox.SelectedText));
             //*/
         }
     }
