@@ -55,7 +55,7 @@ namespace Utils.NetTests
             Application.Run();
         }
 
-        private static void WaitFor(Func<bool> condition, TimeSpan timeout)
+        public static void WaitFor(Func<bool> condition, TimeSpan timeout)
         {
             var stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
