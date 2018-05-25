@@ -21,6 +21,7 @@ namespace Utils.Net.Dialogs
                 if (string.IsNullOrEmpty(value))
                 {
                     MessageTextBlock.Visibility = Visibility.Collapsed;
+                    MessageTextBlock.Text = value;
                 }
                 else
                 {
@@ -41,6 +42,7 @@ namespace Utils.Net.Dialogs
                 if (value == 0)
                 {
                     ProgressBar.IsIndeterminate = true;
+                    ProgressBar.Maximum = value;
                 }
                 else
                 {
@@ -70,6 +72,7 @@ namespace Utils.Net.Dialogs
                 if (string.IsNullOrEmpty(value))
                 {
                     SubMessageTextBlock.Visibility = Visibility.Collapsed;
+                    SubMessageTextBlock.Text = value;
                 }
                 else
                 {

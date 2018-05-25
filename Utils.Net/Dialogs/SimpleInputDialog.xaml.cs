@@ -20,6 +20,7 @@ namespace Utils.Net.Dialogs
                 if (string.IsNullOrEmpty(value))
                 {
                     MessageTextBlock.Visibility = Visibility.Collapsed;
+                    MessageTextBlock.Text = value;
                 }
                 else
                 {
@@ -85,7 +86,14 @@ namespace Utils.Net.Dialogs
         {
             if (ParentWindow != null)
             {
-                ParentWindow.DialogResult = result;
+                try
+                {
+                    ParentWindow.DialogResult = result;
+                }
+                catch
+                {
+                    ParentWindow.Close();
+                }
             }
         }
 

@@ -90,9 +90,9 @@ namespace Utils.Net.Controls
         /// <summary>
         /// Gets or sets the width of the icon.
         /// </summary>
-        public Size IconWidth
+        public double IconWidth
         {
-            get => (Size)GetValue(IconWidthProperty);
+            get => (double)GetValue(IconWidthProperty);
             set => SetValue(IconWidthProperty, value);
         }
 
