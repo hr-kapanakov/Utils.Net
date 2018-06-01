@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using Utils.Net.Common;
@@ -9,19 +10,34 @@ namespace Utils.Net.Sample.ViewModels
 {
     public class OthersPageViewModel : ViewModelBase
     {
-        public double Number { get; set; }
-
         public RelayCommand SimpleInputDialogCommand { get; }
 
         public RelayCommand ProgressDialogCommand { get; }
+
+        private double number;
+        public double Number
+        {
+            get => number;
+            set => SetPropertyBackingField(ref number, value);
+        }
+
+        private string validatedText;
+        public string ValidatedText
+        {
+            get => validatedText;
+            set => SetPropertyBackingField(ref validatedText, value);
+        }
+
+        public ValidationRule.ValidationDelegate Validator { get; }
 
 
         public OthersPageViewModel()
         {
             SimpleInputDialogCommand = new RelayCommand(_ => ShowSimpleInputDialog());
             ProgressDialogCommand = new RelayCommand(_ => ShowProgressDialog());
-        }
 
+            Validator = TextValidation;
+        }
 
         private void ShowSimpleInputDialog()
         {
@@ -49,6 +65,25 @@ namespace Utils.Net.Sample.ViewModels
                     }
                 }
             }
+        }
+
+        private bool TextValidation(object value, out string message)
+        {
+            if (!(value is string text))
+            {
+                message = "Value type is invalid";
+                return false;
+            }
+
+            var result = Regex.IsMatch(text, @"^[a-zA-Z]+$");
+            if (!result)
+            {
+                message = "Value doesn't contains only letters";
+                return false;
+            }
+
+            message = string.Empty;
+            return true;
         }
     }
 }
