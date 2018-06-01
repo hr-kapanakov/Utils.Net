@@ -15,9 +15,12 @@ namespace Utils.Net.Managers.Tests
         #endregion
 
         #region Members
+      
+        private readonly string testDbPath = 
+            Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), TestDbFileName);
 
-        private DBConnectionManager testManager;        
-        private string testDbPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), TestDbFileName);
+        private DBConnectionManager testManager;
+
         private KeyValuePair<string, int> testStoredRecord = new KeyValuePair<string, int>("Stored", 100);
         private KeyValuePair<string, int> testNewRecord = new KeyValuePair<string, int>("New", 50);
         private KeyValuePair<string, int> testParameterizedRecord = new KeyValuePair<string, int>("Parameterized", 10);

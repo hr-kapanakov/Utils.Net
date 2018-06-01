@@ -11,6 +11,7 @@ set DEVENVFOLDER=%ProgramFiles(x86)%
 if not exist "%DEVENVFOLDER%" set DEVENVFOLDER=%ProgramFiles%
 
 set DEVENV2017="%DEVENVFOLDER%\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"
+set VSTEST2017="%DEVENVFOLDER%\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe"
 
 set PROJECT=Utils.Net
 
@@ -22,6 +23,11 @@ echo.
 echo Building %PROJECT%...
 %DEVENV2017% %PROJECT%.sln /Rebuild Release
 if %errorlevel% NEQ 0 goto BUILDERROR
+
+echo.
+echo Testing %PROJECT%...
+%VSTEST2017% %PROJECT%Tests\bin\Release\%PROJECT%Tests.dll
+if %errorlevel% NEQ 0 goto TESTSERROR
 
 
 echo.
@@ -47,6 +53,10 @@ goto END
 :BUILDERROR
 echo.
 echo Error: Build errors occured.
+
+:TESTSERROR
+echo.
+echo Error: Tests errors occured.
 
 :PUSHERROR
 echo.

@@ -7,7 +7,7 @@ namespace Utils.Net.Interactivity.Tests
     [TestClass]
     public class InteractionTests
     {
-        private DependencyObject testDependencyObject = new DependencyObject();
+        private readonly DependencyObject testDependencyObject = new DependencyObject();
 
         private class TestBehavior : Behavior
         {

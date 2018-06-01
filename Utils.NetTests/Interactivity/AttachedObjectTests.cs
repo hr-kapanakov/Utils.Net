@@ -7,7 +7,7 @@ namespace Utils.Net.Interactivity.Tests
     [TestClass]
     public class AttachedObjectTests
     {
-        private DependencyObject testDependencyObject = new DependencyObject();
+        private readonly DependencyObject testDependencyObject = new DependencyObject();
 
         private class TestAttachedObject : AttachedObject
         {
@@ -23,6 +23,7 @@ namespace Utils.Net.Interactivity.Tests
 
             testAttachedObject.Attach(testDependencyObject); // for code coverage
             Assert.ThrowsException<InvalidOperationException>(() => testAttachedObject.Attach(null));
+            testAttachedObject.Clone(); // for code coverage
         }
 
         [TestMethod]
