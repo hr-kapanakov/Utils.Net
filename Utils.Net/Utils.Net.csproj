@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adorners\SortAdorner.cs" />
+    <Compile Include="Common\BindingProxy.cs" />
     <Compile Include="Common\EventArgs.cs" />
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\ValidationRule.cs" />
     <Compile Include="Controls\NumericBox.cs" />
     <Compile Include="Controls\TextBox.cs" />
     <Compile Include="Controls\ToolTip.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\ActiveDirectoryHelper.cs" />
+    <Compile Include="Helpers\RelativeFontSizeHelper.cs" />
     <Compile Include="Helpers\WPFHelper.cs" />
     <Compile Include="Interactivity\AttachedObject.cs" />
     <Compile Include="Interactivity\Behaviors\AutoCompleteBehavior.cs" />

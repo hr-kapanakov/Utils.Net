@@ -13,12 +13,12 @@ namespace Utils.Net.Common
         /// <summary>
         /// Private member representing action to execute.
         /// </summary>
-        private Action<object> execute;
+        private readonly Action<object> execute;
 
         /// <summary>
         /// Private member representing the can execute condition.
         /// </summary>
-        private Func<object, bool> canExecute;
+        private readonly Func<object, bool> canExecute;
 
         #endregion
 

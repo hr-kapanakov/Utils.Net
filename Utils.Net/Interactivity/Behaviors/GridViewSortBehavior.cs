@@ -14,7 +14,7 @@ namespace Utils.Net.Interactivity.Behaviors
     /// </summary>
     public class GridViewSortBehavior : Behavior<ListView>
     {
-        private RelayCommand command;
+        private readonly RelayCommand command;
         private GridViewColumnHeader listViewSortColumn;
         private SortAdorner listViewSortAdorner;
 
@@ -33,13 +33,12 @@ namespace Utils.Net.Interactivity.Behaviors
         {
             base.OnAttached();
 
-            var gridView = AssociatedObject.View as GridView;
-            if (gridView == null)
+            if (!(AssociatedObject.View is GridView gridView))
             {
                 AssociatedObject.Loaded += (_, __) => OnAttached();
                 return;
             }
-            
+
             foreach (var column in gridView.Columns)
             {
                 if (column.Header is GridViewColumnHeader header)
@@ -73,8 +72,7 @@ namespace Utils.Net.Interactivity.Behaviors
 
         private void MarkSortedColumn(GridView gridView)
         {
-            var gridSourceCollection = AssociatedObject.ItemsSource as ICollectionView;
-            if (gridSourceCollection == null)
+            if (!(AssociatedObject.ItemsSource is ICollectionView gridSourceCollection))
             {
                 gridSourceCollection = CollectionViewSource.GetDefaultView(AssociatedObject.ItemsSource);
             }
@@ -95,8 +93,7 @@ namespace Utils.Net.Interactivity.Behaviors
 
         private void SortColumn(GridViewColumnHeader header)
         {
-            var gridSourceCollection = AssociatedObject.ItemsSource as ICollectionView;
-            if (gridSourceCollection == null)
+            if (!(AssociatedObject.ItemsSource is ICollectionView gridSourceCollection))
             {
                 gridSourceCollection = CollectionViewSource.GetDefaultView(AssociatedObject.ItemsSource);
             }

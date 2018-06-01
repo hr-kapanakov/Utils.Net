@@ -12,9 +12,9 @@ namespace Utils.Net.Managers
     /// </summary>
     public class MailManager : IMailManager
     {
-        private string mailServer;
-        private string mailUser;
-        private string mailPassword;
+        private readonly string mailServer;
+        private readonly string mailUser;
+        private readonly string mailPassword;
 
         /// <summary>
         /// Gets or sets a value indicating whether mailing is suspended.

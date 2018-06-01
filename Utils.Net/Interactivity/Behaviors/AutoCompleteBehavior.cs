@@ -132,8 +132,7 @@ namespace Utils.Net.Interactivity.Behaviors
                 return;
             }
 
-            var tb = e.OriginalSource as TextBox;
-            if (tb == null)
+            if (!(e.OriginalSource is TextBox tb))
             {
                 return;
             }

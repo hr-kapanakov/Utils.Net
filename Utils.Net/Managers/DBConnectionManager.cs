@@ -12,11 +12,11 @@ namespace Utils.Net.Managers
     {
         #region Members
 
+        private readonly object locker = new object();
+
         private ConnectionStringSettings connectionStringSettings;
         private DbProviderFactory factory;
         private DbConnection connection;
-
-        private object locker = new object();
 
         #endregion
 

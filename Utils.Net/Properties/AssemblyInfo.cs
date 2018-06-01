@@ -35,7 +35,7 @@ using System.Windows.Markup;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.*")]
+[assembly: AssemblyVersion("0.2.*")]
 
 
 [assembly: XmlnsPrefix("http://schemas.utils.net/interactivity", "i")]
@@ -49,3 +49,7 @@ using System.Windows.Markup;
 
 [assembly: XmlnsPrefix("http://schemas.utils.net/converters", "convs")]
 [assembly: XmlnsDefinition("http://schemas.utils.net/converters", "Utils.Net.Converters")]
+
+[assembly: XmlnsPrefix("http://schemas.utils.net/common", "common")]
+[assembly: XmlnsDefinition("http://schemas.utils.net/common", "Utils.Net.Common")]
+[assembly: XmlnsDefinition("http://schemas.utils.net/common", "Utils.Net.Helpers")]
