@@ -77,8 +77,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Adorners\SortAdornerTests.cs" />
+    <Compile Include="Common\BindingProxyTests.cs" />
     <Compile Include="Common\EventArgsTests.cs" />
     <Compile Include="Common\RelayCommandTests.cs" />
+    <Compile Include="Common\ValidationRuleTests.cs" />
     <Compile Include="Controls\NumericBoxTests.cs" />
     <Compile Include="Controls\TextBoxTests.cs" />
     <Compile Include="Controls\ToolTipTests.cs" />
@@ -94,6 +96,7 @@
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\RelativeFontSizeHelperTests.cs" />
     <Compile Include="Helpers\WPFHelperTests.cs" />
     <Compile Include="Interactivity\AttachedObjectTests.cs" />
     <Compile Include="Interactivity\Behaviors\AutoCompleteBehaviorTests.cs" />
