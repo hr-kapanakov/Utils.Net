@@ -43,8 +43,7 @@ namespace Utils.Net.Interactivity.Triggers
 
         private static void Actions_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            var dependencyObject = sender as DependencyObject;
-            if (dependencyObject == null)
+            if (!(sender is DependencyObject dependencyObject))
             {
                 return;
             }

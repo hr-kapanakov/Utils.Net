@@ -70,8 +70,7 @@ namespace Utils.Net.Interactivity
 
         private static void AttachedCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            var dependencyObject = sender as DependencyObject;
-            if (dependencyObject == null)
+            if (!(sender is DependencyObject dependencyObject))
             {
                 return;
             }

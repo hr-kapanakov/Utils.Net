@@ -2,16 +2,12 @@
 
 * Write better github Readme; Better examples; Split library in smaller ones - WPF, Core, etc.
 
-* Validation Rules - https://docs.microsoft.com/en-us/dotnet/framework/wpf/app-development/dialog-boxes-overview (Validating User-Provided Data)
-
 * Folder Selection Dialog
 https://msdn.microsoft.com/en-us/library/microsoft.win32.openfiledialog(v=vs.110).aspx
 https://msdn.microsoft.com/en-us/library/system.windows.forms.folderbrowserdialog%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396
+https://github.com/aelij/WPFContrib
 
 * Settings Dialog - based on attributes
-
-* RelativeFontSizeHelper
-https://social.msdn.microsoft.com/Forums/vstudio/en-US/93bf5bd2-e471-4414-af4c-11576c348508/wpf-relative-font-size?forum=wpf
 
 * TransparentListView, Animated styles (expander, listview)
 
@@ -22,10 +18,12 @@ https://social.msdn.microsoft.com/Forums/vstudio/en-US/93bf5bd2-e471-4414-af4c-1
 
 * May be add WaitFor function in UITester to some helper
 
--- Test --
-No UI Code Coverage 40.59% / 43.07%
-Some UI Code Coverage 56.01% / 59.38%
-With UI Code Coverage 76.35% / 80.14%
+
+-- Test -- 
+Code Coverage 76.90% / 80.68%
+
+* Add tests for all Interactivity Behaviors
+* Check all uncovered code
 
 
 -- Sample --
