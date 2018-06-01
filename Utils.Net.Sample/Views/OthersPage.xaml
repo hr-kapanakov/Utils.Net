@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:Utils.Net.Sample.ViewModels"
              xmlns:ctrls="http://schemas.utils.net/controls"
+             xmlns:common="http://schemas.utils.net/common"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -24,12 +25,30 @@
             <ctrls:NumericBox Margin="5" 
                               Value="{Binding Number}" StringFormat="0.0" Minimum="0" Maximum="100" Step="0.1"/>
 
-            <Button Content="Link Button Style" Margin="5"
+            <Button Content="Link Button Style" Margin="5" VerticalAlignment="Center" common:RelativeFontSizeHelper.RelativeFontSize="2"
                     Style="{StaticResource LinkButtonStyle}"/>
 
             <Button Content="https://image.flaticon.com/icons/png/512/31/31117.png" 
                     Margin="5" Height="25" Padding="3" ToolTip="Image Button Style"
                     Style="{StaticResource ImageButtonStyle}"/>
+
+            <TextBox Margin="5" Width="100" Height="25" VerticalContentAlignment="Center"
+                     ToolTip="{Binding RelativeSource={RelativeSource self}, Path=(Validation.Errors)[0].ErrorContent}">
+                <TextBox.Resources>
+                    <common:BindingProxy x:Key="proxy" Data="{Binding}"/>
+                </TextBox.Resources>
+                <TextBox.Text>
+                    <Binding Path="ValidatedText" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <common:ValidationRule>
+                                <common:ValidationRule.Validator>
+                                    <common:BindingProxy Data="{Binding Data.Validator, Source={StaticResource proxy}}"/>
+                                </common:ValidationRule.Validator>
+                            </common:ValidationRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
         </WrapPanel>
     </Border>
