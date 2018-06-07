@@ -92,7 +92,7 @@ namespace Utils.Net.Interactivity.Behaviors
             }
 
             var hitTestResult = VisualTreeHelper.HitTest(AssociatedObject, e.GetPosition(AssociatedObject));
-            var treeViewItem = hitTestResult.VisualHit.FindVisualAncestor<TreeViewItem>();
+            var treeViewItem = hitTestResult?.VisualHit?.FindVisualAncestor<TreeViewItem>();
             if (treeViewItem == null)
             {
                 var item = (TreeViewItem)AssociatedObject
@@ -113,6 +113,12 @@ namespace Utils.Net.Interactivity.Behaviors
                 .RecursiveContainerFromItem(e.NewValue) is TreeViewItem item)
             {
                 item.IsSelected = true;
+            }
+            else if (behavior != null && behavior.SelectedItem == null &&
+                behavior?.AssociatedObject?.ItemContainerGenerator
+                .RecursiveContainerFromItem(behavior?.AssociatedObject?.SelectedItem) is TreeViewItem item2)
+            {
+                item2.IsSelected = false;
             }
         }
     }

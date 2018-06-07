@@ -20,10 +20,7 @@ https://github.com/aelij/WPFContrib
 
 
 -- Test -- 
-Code Coverage 76.90% / 80.68%
-
-* Add tests for all Interactivity Behaviors
-* Check all uncovered code
+Code Coverage 84.53% / 87.84%
 
 
 -- Sample --

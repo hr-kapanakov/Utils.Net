@@ -125,7 +125,7 @@ namespace Utils.Net.Interactivity.Behaviors
             }
 
             var hitTestResult = VisualTreeHelper.HitTest(AssociatedObject, e.GetPosition(AssociatedObject));
-            var listViewItem = WPFHelper.FindVisualAncestor<ListViewItem>(hitTestResult.VisualHit);
+            var listViewItem = WPFHelper.FindVisualAncestor<ListViewItem>(hitTestResult?.VisualHit);
             if (listViewItem == null)
             {
                 AssociatedObject.SelectedItem = null;

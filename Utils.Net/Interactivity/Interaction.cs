@@ -68,13 +68,8 @@ namespace Utils.Net.Interactivity
         }
 
 
-        private static void AttachedCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        private static void AttachedCollectionChanged(DependencyObject dependencyObject, NotifyCollectionChangedEventArgs e)
         {
-            if (!(sender is DependencyObject dependencyObject))
-            {
-                return;
-            }
-
             if (e.NewItems != null)
             {
                 foreach (AttachedObject item in e.NewItems)

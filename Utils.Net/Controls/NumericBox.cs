@@ -343,20 +343,15 @@ namespace Utils.Net.Controls
 
         private static void OnCornerRadiusChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
-            if (target is NumericBox numericBox)
-            {
-                numericBox.RefreshButtonsStyles();
-            }
+            ((NumericBox)target).RefreshButtonsStyles();
         }
 
         private static void OnValueChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
-            if (target is NumericBox numericBox)
-            {
-                numericBox.Value = Math.Min(numericBox.Value, numericBox.Maximum);
-                numericBox.Value = Math.Max(numericBox.Value, numericBox.Minimum);
-                numericBox.Text = numericBox.Value.ToString(numericBox.StringFormat);
-            }
+            var numericBox = (NumericBox)target;
+            numericBox.Value = Math.Min(numericBox.Value, numericBox.Maximum);
+            numericBox.Value = Math.Max(numericBox.Value, numericBox.Minimum);
+            numericBox.Text = numericBox.Value.ToString(numericBox.StringFormat);
         }
     }
 }

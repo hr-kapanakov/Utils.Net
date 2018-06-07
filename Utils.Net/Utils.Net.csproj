@@ -104,6 +104,7 @@
   <ItemGroup>
     <None Include=".editorconfig" />
     <None Include="Settings.StyleCop" />
+    <None Include="Utils.Net.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TODO.txt" />

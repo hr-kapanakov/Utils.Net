@@ -131,10 +131,7 @@ namespace Utils.Net.Controls
 
         private static void OnFullLabelChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
-            if (target is ToolTip toolTip)
-            {
-                toolTip.RefreshLabelText();
-            }
+            ((ToolTip)target).RefreshLabelText();
         } 
     }
 }

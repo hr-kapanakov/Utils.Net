@@ -98,7 +98,6 @@ namespace Utils.Net.Controls
         private Button clearButton;
         private Button ClearButton
         {
-            get => clearButton;
             set
             {
                 if (clearButton != null)
