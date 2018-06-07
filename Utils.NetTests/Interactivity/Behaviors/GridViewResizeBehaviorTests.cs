@@ -44,6 +44,16 @@ namespace Utils.Net.Interactivity.Behaviors.Tests
             Assert.AreEqual(testGridView.Columns[0].Width, 25);
             Assert.AreEqual(testGridView.Columns[1].Width, 10);
             Assert.AreEqual(testGridView.Columns[2].Width, 75);
+
+            // for code coverage
+            GridViewResizeBehavior.SetWidth(testGridView.Columns[2], "a*");
+            Assert.AreEqual(GridViewResizeBehavior.GetMultiplier(testGridView.Columns[2]), 1);
+            GridViewResizeBehavior.SetWidth(testGridView.Columns[2], "2");
+            Assert.AreEqual(GridViewResizeBehavior.GetMultiplier(testGridView.Columns[2]), 1);
+
+            testListView.View = null;
+            testListView.Arrange(new Rect(0, 0, 100, 100));
+            testListView.UpdateLayout();
         }
 
         [TestMethod]

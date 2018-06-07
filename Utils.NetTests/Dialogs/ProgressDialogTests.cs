@@ -96,6 +96,13 @@ namespace Utils.Net.Dialogs.Tests
                     });
 
                 Assert.IsTrue(closed);
+
+                // for code coverage
+                testProgressDialog.RaiseEvent(
+                    new KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, Key.Enter)
+                    {
+                        RoutedEvent = Keyboard.KeyDownEvent
+                    });
             });
         }
 

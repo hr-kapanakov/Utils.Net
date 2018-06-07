@@ -101,7 +101,9 @@
     <Compile Include="Interactivity\AttachedObjectTests.cs" />
     <Compile Include="Interactivity\Behaviors\AutoCompleteBehaviorTests.cs" />
     <Compile Include="Interactivity\Behaviors\GridViewResizeBehaviorTests.cs" />
-    <Compile Include="Interactivity\Behaviors\ListViewExtensionBehaviorTest.cs" />
+    <Compile Include="Interactivity\Behaviors\GridViewSortBehaviorTests.cs" />
+    <Compile Include="Interactivity\Behaviors\ListViewExtensionBehaviorTests.cs" />
+    <Compile Include="Interactivity\Behaviors\TreeViewExtensionBehaviorTests.cs" />
     <Compile Include="Interactivity\InteractionTests.cs" />
     <Compile Include="Interactivity\TriggerActions\InvokeCommandActionTests.cs" />
     <Compile Include="Interactivity\Triggers\EventTriggerTests.cs" />

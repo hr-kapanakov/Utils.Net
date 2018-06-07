@@ -16,10 +16,10 @@ namespace Utils.Net.Controls.Tests
         public void SetUp()
         {
             UITester.Init(typeof(Utils.Net.Sample.App));
-
-            var comboBox = UITester.Get<ComboBox>();
-            UITester.Dispatcher.Invoke(() => comboBox.SelectedItem = "OthersPage");
+            
+            UITester.Dispatcher.Invoke(() => UITester.Get<ComboBox>().SelectedItem = "OthersPage");
             System.Threading.Thread.Sleep(100);
+
             testNumericBox = UITester.Get<NumericBox>();
         }
 
@@ -126,6 +126,13 @@ namespace Utils.Net.Controls.Tests
                         RoutedEvent = Keyboard.KeyUpEvent
                     });
                 Assert.AreEqual(testNumericBox.Value, value);
+
+                // for code coverage
+                testNumericBox.RaiseEvent(
+                    new KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, Key.Left)
+                    {
+                        RoutedEvent = Keyboard.KeyUpEvent
+                    });
             });
         }
 

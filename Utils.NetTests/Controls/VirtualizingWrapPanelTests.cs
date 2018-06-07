@@ -17,9 +17,9 @@ namespace Utils.Net.Controls.Tests
         {
             UITester.Init(typeof(Utils.Net.Sample.App));
 
-            var comboBox = UITester.Get<ComboBox>();
-            UITester.Dispatcher.Invoke(() => comboBox.SelectedItem = "ExplorerPage");
+            UITester.Dispatcher.Invoke(() => UITester.Get<ComboBox>().SelectedItem = "ExplorerPage");
             System.Threading.Thread.Sleep(100);
+
             testVirtualizingWrapPanel = UITester.Get<VirtualizingWrapPanel>();
         }
 

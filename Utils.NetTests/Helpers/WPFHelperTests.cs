@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Utils.Net.ViewModels;
 using Utils.NetTests;
 
 namespace Utils.Net.Helpers.Tests
@@ -15,10 +16,10 @@ namespace Utils.Net.Helpers.Tests
         public void SetUp()
         {
             UITester.Init(typeof(Utils.Net.Sample.App));
-
-            var comboBox = UITester.Get<ComboBox>();
-            UITester.Dispatcher.Invoke(() => comboBox.SelectedItem = "ExplorerPage");
+            
+            UITester.Dispatcher.Invoke(() => UITester.Get<ComboBox>().SelectedItem = "ExplorerPage");
             System.Threading.Thread.Sleep(100);
+
             testTreeView = UITester.Get<TreeView>();
         }
 
@@ -55,10 +56,25 @@ namespace Utils.Net.Helpers.Tests
         [TestMethod]
         public void RecursiveContainerFromItemTest()
         {
-            // for code coverage
             UITester.Dispatcher.Invoke(() =>
             {
                 var item = testTreeView.Items[0];
+                var treeViewItem = testTreeView.ItemContainerGenerator.RecursiveContainerFromItem(item);
+                Assert.IsNotNull(treeViewItem);
+                Assert.IsInstanceOfType(treeViewItem, typeof(TreeViewItem));
+                ((TreeViewItem)treeViewItem).IsExpanded = true;
+
+                // for code coverage
+                item = ((TreeItemViewModel)testTreeView.Items[0]).Children[0];
+                treeViewItem = testTreeView.ItemContainerGenerator.RecursiveContainerFromItem(item);
+                Assert.IsNull(treeViewItem);
+            });
+            System.Threading.Thread.Sleep(100);
+
+            // for code coverage
+            UITester.Dispatcher.Invoke(() =>
+            {
+                var item = ((TreeItemViewModel)testTreeView.Items[0]).Children[0];
                 var treeViewItem = testTreeView.ItemContainerGenerator.RecursiveContainerFromItem(item);
                 Assert.IsNotNull(treeViewItem);
                 Assert.IsInstanceOfType(treeViewItem, typeof(TreeViewItem));

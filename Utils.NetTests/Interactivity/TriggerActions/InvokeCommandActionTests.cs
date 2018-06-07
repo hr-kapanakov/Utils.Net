@@ -31,8 +31,14 @@ namespace Utils.Net.Interactivity.TriggerActions.Tests
                 Command = null,
                 CommandName = "test"
             };
+            action.CommandName = "test";
             eventTrigger.Actions.Add(action);
             Assert.AreEqual(action.CommandName, "test");
+            textBox.RaiseEvent(new TextChangedEventArgs(TextBoxBase.TextChangedEvent, UndoAction.None));
+            action.IsEnabled = false;
+            textBox.RaiseEvent(new TextChangedEventArgs(TextBoxBase.TextChangedEvent, UndoAction.None));
+            action.IsEnabled = true;
+            action.Detach();
             textBox.RaiseEvent(new TextChangedEventArgs(TextBoxBase.TextChangedEvent, UndoAction.None));
         }
     }
