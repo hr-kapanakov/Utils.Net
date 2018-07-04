@@ -22,6 +22,9 @@
             <Button Content="Progress Dialog" Margin="5" Padding="3"
                     Command="{Binding ProgressDialogCommand}"/>
 
+            <Button Content="Settings Dialog" Margin="5" Padding="3"
+                    Command="{Binding SettingsDialogCommand}"/>
+
             <ctrls:NumericBox Margin="5" 
                               Value="{Binding Number}" StringFormat="0.0" Minimum="0" Maximum="100" Step="0.1"/>
 

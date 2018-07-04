@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using System.Windows;
 using System.Windows.Controls;
 using Autofac;
 using Utils.Net.Common;
-using Utils.Net.Extensions;
 using Utils.Net.Interfaces;
-using Utils.Net.Managers;
-using Utils.Net.Sample.Views;
 using Utils.Net.ViewModels;
 
 namespace Utils.Net.Sample
