@@ -1,26 +1,29 @@
 ﻿StyleCop, AxoCover
 
 * Write better github Readme; Better examples; Split library in smaller ones - WPF, Core, etc.
+* Rename library to OpenUtils.Net
 
 * Folder Selection Dialog
 https://msdn.microsoft.com/en-us/library/microsoft.win32.openfiledialog(v=vs.110).aspx
 https://msdn.microsoft.com/en-us/library/system.windows.forms.folderbrowserdialog%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396
 https://github.com/aelij/WPFContrib
 
-* Settings Dialog - based on attributes
-
 * TransparentListView, Animated styles (expander, listview)
+* Rounded Button style, cooler Expander style (add to SettingsDialog)
 
-* Custom combobox
+* Custom combobox (add to SettingsDialog)
 * CircularProgressBar
 
 * Maybe add colors resource used in different styles / ThemeManager?
 
-* May be add WaitFor function in UITester to some helper
+* Maybe add WaitFor function in UITester to some helper
+
+* Move to StyleCopAnalyzers (instead of StyleCop), check WpfAnalyzers and others
+https://github.com/DotNetAnalyzers
 
 
 -- Test -- 
-Code Coverage 84.53% / 87.84%
+Code Coverage 85.45% / 88.75%
 
 
 -- Sample --

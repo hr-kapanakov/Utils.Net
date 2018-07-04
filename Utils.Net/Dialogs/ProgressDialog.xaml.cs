@@ -201,7 +201,7 @@ namespace Utils.Net.Dialogs
         /// <summary>
         /// Start new <see cref="ProgressDialog"/> window.
         /// </summary>
-        /// <param name="owner">Window which owns this dialog.</param>
+        /// <param name="owner">The window which owns this dialog.</param>
         /// <param name="caption">The caption of the showed dialog.</param>
         /// <param name="maximum">Maximum position of the <see cref="System.Windows.Controls.ProgressBar"/>. Zero for continues progress.</param>
         /// <param name="message">The message that will be shown to the user; default empty.</param>

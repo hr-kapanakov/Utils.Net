@@ -95,6 +95,9 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                         </Trigger>
+                        <Trigger Property="IsReadOnly" Value="True">
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                        </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
                             <Setter Property="Opacity" TargetName="icon" Value="1.0"/>

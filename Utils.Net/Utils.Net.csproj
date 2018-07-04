@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adorners\SortAdorner.cs" />
+    <Compile Include="Attributes\NumericAttribute.cs" />
+    <Compile Include="Attributes\SettingAttribute.cs" />
     <Compile Include="Common\BindingProxy.cs" />
     <Compile Include="Common\EventArgs.cs" />
     <Compile Include="Common\RelayCommand.cs" />
@@ -66,6 +68,9 @@
     <Compile Include="Converters\TypeOfConverter.cs" />
     <Compile Include="Dialogs\ProgressDialog.xaml.cs">
       <DependentUpon>ProgressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SettingsDialog.xaml.cs">
+      <DependentUpon>SettingsDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SimpleInputDialog.xaml.cs">
       <DependentUpon>SimpleInputDialog.xaml</DependentUpon>
@@ -125,6 +130,10 @@
     <Page Include="Dialogs\ProgressDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\SettingsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\SimpleInputDialog.xaml">
       <Generator>MSBuild:Compile</Generator>

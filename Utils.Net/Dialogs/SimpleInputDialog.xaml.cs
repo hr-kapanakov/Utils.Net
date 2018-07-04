@@ -113,7 +113,7 @@ namespace Utils.Net.Dialogs
         /// <summary>
         /// Get <see cref="string"/> as user input by showing <see cref="SimpleInputDialog"/> window.
         /// </summary>
-        /// <param name="owner">Window which owns this dialog.</param>
+        /// <param name="owner">The window which owns this dialog.</param>
         /// <param name="caption">The caption of the showed dialog.</param>
         /// <param name="message">The message that will be shown to the user; default empty.</param>
         /// <param name="input">Text that will be suggested to the user as default input; default empty.</param>
