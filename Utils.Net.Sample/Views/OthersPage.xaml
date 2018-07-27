@@ -16,24 +16,24 @@
     <Border BorderThickness="1" BorderBrush="Gray" Margin="5">
         <WrapPanel Orientation="Horizontal" Margin="5">
 
-            <Button Content="Simple Input Dialog" Margin="5" Padding="3"
-                    Command="{Binding SimpleInputDialogCommand}"/>
+            <ctrls:Button Content="Simple Input Dialog" Margin="5" Padding="3"
+                          Command="{Binding SimpleInputDialogCommand}"/>
 
-            <Button Content="Progress Dialog" Margin="5" Padding="3"
-                    Command="{Binding ProgressDialogCommand}"/>
+            <ctrls:Button Content="Progress Dialog" Margin="5" Padding="3"
+                          Command="{Binding ProgressDialogCommand}"/>
 
-            <Button Content="Settings Dialog" Margin="5" Padding="3"
-                    Command="{Binding SettingsDialogCommand}"/>
+            <ctrls:Button Content="Settings Dialog" Margin="5" Padding="3"
+                          Command="{Binding SettingsDialogCommand}"/>
 
             <ctrls:NumericBox Margin="5" 
                               Value="{Binding Number}" StringFormat="0.0" Minimum="0" Maximum="100" Step="0.1"/>
 
-            <Button Content="Link Button Style" Margin="5" VerticalAlignment="Center" common:RelativeFontSizeHelper.RelativeFontSize="2"
-                    Style="{StaticResource LinkButtonStyle}"/>
+            <ctrls:Button Content="Link Button Style" Margin="5" VerticalAlignment="Center" common:RelativeFontSizeHelper.RelativeFontSize="2"
+                          Style="{StaticResource LinkButtonStyle}"/>
 
-            <Button Content="https://image.flaticon.com/icons/png/512/31/31117.png" 
-                    Margin="5" Height="25" Padding="3" ToolTip="Image Button Style"
-                    Style="{StaticResource ImageButtonStyle}"/>
+            <ctrls:ToggleButton Content="https://image.flaticon.com/icons/png/512/31/31117.png"
+                          Margin="5" Height="25" Padding="3" ToolTip="Image Button Style"
+                          Style="{StaticResource ImageButtonStyle}"/>
 
             <TextBox Margin="5" Width="100" Height="25" VerticalContentAlignment="Center"
                      ToolTip="{Binding RelativeSource={RelativeSource self}, Path=(Validation.Errors)[0].ErrorContent}">
@@ -52,6 +52,10 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
+
+            <ctrls:Expander Header="Expander" ToggleButtonTemplate="{StaticResource PlusExpanderToggleButtonTemplate}">
+                <TextBlock Text="Test"/>
+            </ctrls:Expander>
 
         </WrapPanel>
     </Border>

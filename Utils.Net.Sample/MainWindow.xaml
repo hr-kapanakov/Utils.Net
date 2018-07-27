@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctrls="http://schemas.utils.net/controls"
         xmlns:local="clr-namespace:Utils.Net.Sample"
         mc:Ignorable="d"
         Title="Utils.Net.Sample" Width="800" Height="480">
@@ -18,9 +19,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-            <Button Content="Back" Command="{Binding BackwardCommand}"/>
+            <ctrls:Button Content="Back" Padding="5 0" Command="{Binding BackwardCommand}"/>
             <ComboBox ItemsSource="{Binding Controls}" SelectedItem="{Binding SelectedControl}" MinWidth="100" Margin="5 0"/>
-            <Button Content="Next" Command="{Binding ForwardCommand}"/>
+            <ctrls:Button Content="Next" Padding="5 0" Command="{Binding ForwardCommand}"/>
         </StackPanel>
 
         <ContentControl Grid.Row="1" Content="{Binding NavigationManager.CurrentControl}"/>
