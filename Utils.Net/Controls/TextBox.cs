@@ -12,7 +12,7 @@ namespace Utils.Net.Controls
     /// Add <see cref="IconSource"/>, <see cref="Hint"/> text and clear button.
     /// </remarks>
     [TemplatePart(Name = "PART_ContentHost", Type = typeof(FrameworkElement))]
-    [TemplatePart(Name = "PART_ClearButton", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_ClearButton", Type = typeof(System.Windows.Controls.Button))]
     public class TextBox : System.Windows.Controls.TextBox
     {
         #region Dependency Properties
@@ -95,8 +95,8 @@ namespace Utils.Net.Controls
         #endregion
 
 
-        private Button clearButton;
-        private Button ClearButton
+        private System.Windows.Controls.Button clearButton;
+        private System.Windows.Controls.Button ClearButton
         {
             set
             {
@@ -128,7 +128,7 @@ namespace Utils.Net.Controls
         {
             base.OnApplyTemplate();
 
-            ClearButton = GetTemplateChild("PART_ClearButton") as Button;
+            ClearButton = GetTemplateChild("PART_ClearButton") as System.Windows.Controls.Button;
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)

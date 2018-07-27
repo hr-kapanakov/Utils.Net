@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrls="clr-namespace:Utils.Net.Controls"
              mc:Ignorable="d" 
              d:DesignWidth="320" d:DesignHeight="240">
     <Grid>
@@ -14,8 +15,8 @@
         <ContentPresenter Name="content" Grid.Row="0"/>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="15 10">
-            <Button Content="OK" Margin="10 0" Padding="15 3" IsDefault="True" Click="OKButton_Click"/>
-            <Button Content="Cancel" Padding="15 3" Click="CancelButton_Click"/>
+            <ctrls:Button Content="OK" Margin="10 0" Padding="15 3" IsDefault="True" Click="OKButton_Click"/>
+            <ctrls:Button Content="Cancel" Padding="15 3" Click="CancelButton_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

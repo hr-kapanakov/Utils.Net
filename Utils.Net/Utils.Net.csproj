@@ -56,8 +56,11 @@
     <Compile Include="Common\EventArgs.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\ValidationRule.cs" />
+    <Compile Include="Controls\Button.cs" />
+    <Compile Include="Controls\Expander.cs" />
     <Compile Include="Controls\NumericBox.cs" />
     <Compile Include="Controls\TextBox.cs" />
+    <Compile Include="Controls\ToggleButton.cs" />
     <Compile Include="Controls\ToolTip.cs" />
     <Compile Include="Controls\VirtualizingWrapPanel.cs" />
     <Compile Include="Converters\CombiningConverter.cs" />
@@ -140,6 +143,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\ButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ExpanderStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

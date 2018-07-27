@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrls="clr-namespace:Utils.Net.Controls"
              mc:Ignorable="d" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
@@ -27,7 +28,7 @@
         <TextBlock Grid.Row="2" Name="SubMessageTextBlock" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Margin="15 0 15 10"/>
 
         <Grid Grid.Row="3" Background="#10000000">
-            <Button Content="Cancel" Name="CancelButton" HorizontalAlignment="Right" Margin="15 10" Padding="15 3" 
+            <ctrls:Button Content="Cancel" x:Name="CancelButton" HorizontalAlignment="Right" Margin="15 10" Padding="15 3" 
                     IsDefault="True" Click="ButtonCancel_Click"/>
         </Grid>
     </Grid>

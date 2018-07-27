@@ -11,8 +11,8 @@ namespace Utils.Net.Controls
     /// double values by using the spinner buttons, keyboard up/down arrows, or mouse wheel.
     /// </summary>
     [TemplatePart(Name = "PART_ContentHost", Type = typeof(FrameworkElement))]
-    [TemplatePart(Name = "PART_UpButton", Type = typeof(Button))]
-    [TemplatePart(Name = "PART_DownButton", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_UpButton", Type = typeof(System.Windows.Controls.Button))]
+    [TemplatePart(Name = "PART_DownButton", Type = typeof(System.Windows.Controls.Button))]
     public class NumericBox : System.Windows.Controls.TextBox
     {
         #region Dependency Properties
@@ -171,8 +171,8 @@ namespace Utils.Net.Controls
         #endregion
 
 
-        private Button upButton;
-        private Button UpButton
+        private System.Windows.Controls.Button upButton;
+        private System.Windows.Controls.Button UpButton
         {
             get => upButton;
             set
@@ -191,8 +191,8 @@ namespace Utils.Net.Controls
             }
         }
 
-        private Button downButton;
-        private Button DownButton
+        private System.Windows.Controls.Button downButton;
+        private System.Windows.Controls.Button DownButton
         {
             get => downButton;
             set
@@ -234,8 +234,8 @@ namespace Utils.Net.Controls
         {
             base.OnApplyTemplate();
 
-            UpButton = GetTemplateChild("PART_UpButton") as Button;
-            DownButton = GetTemplateChild("PART_DownButton") as Button;
+            UpButton = GetTemplateChild("PART_UpButton") as System.Windows.Controls.Button;
+            DownButton = GetTemplateChild("PART_DownButton") as System.Windows.Controls.Button;
             RefreshButtonsStyles();
         }
 

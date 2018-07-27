@@ -155,7 +155,7 @@ namespace Utils.Net.Dialogs
             if (categories.Count() > 1) // show tabs only if there are more than one category
             {
                 var tabControl = new TabControl();
-                foreach (var category in categories)
+                foreach (var category in categories.OrderBy(c => c.Key))
                 {
                     var tabItem = new TabItem
                     {
@@ -183,6 +183,15 @@ namespace Utils.Net.Dialogs
             foreach (var tabItem in tabControl.ItemContainerGenerator.Items.OfType<TabItem>())
             {
                 var content = tabItem.Content as FrameworkElement;
+                if (Parent is FrameworkElement parent)
+                {
+                    content.Measure(new Size(parent.MaxWidth, parent.MaxHeight));
+                }
+                else
+                {
+                    content.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                }
+
                 if (maxSize.Width < content.DesiredSize.Width)
                 {
                     maxSize = new Size(content.DesiredSize.Width, maxSize.Height);
@@ -209,7 +218,7 @@ namespace Utils.Net.Dialogs
             };
 
             var groups = properties.GroupBy(p => p.GetCustomAttribute<SettingAttribute>().Group);
-            foreach (var group in groups)
+            foreach (var group in groups.OrderBy(g => g.Key))
             {
                 var innerStackPanel = stackPanel;
 
@@ -263,11 +272,12 @@ namespace Utils.Net.Dialogs
             else // if ExpandableGroups is enabled add every property into Expander
             {
                 innerStackPanel = new StackPanel();
-                var expander = new Expander
+                var expander = new Controls.Expander
                 {
                     Header = textBlock,
                     IsExpanded = true,
-                    Content = innerStackPanel
+                    Content = innerStackPanel,
+                    ToggleButtonTemplate = (ControlTemplate)FindResource("PlusExpanderToggleButtonTemplate")
                 };
                 return expander;
             }
@@ -304,9 +314,10 @@ namespace Utils.Net.Dialogs
             {
                 control.Width = double.NaN;
 
-                var button = new Button
+                var button = new Controls.Button
                 {
                     Margin = new Thickness(5, 0, 0, 0),
+                    Padding = new Thickness(5, 0, 5, 0),
                     Content = commandName,
                     Command = new RelayCommand(
                         _ => 

@@ -9,7 +9,6 @@ https://msdn.microsoft.com/en-us/library/system.windows.forms.folderbrowserdialo
 https://github.com/aelij/WPFContrib
 
 * TransparentListView, Animated styles (expander, listview)
-* Rounded Button style, cooler Expander style (add to SettingsDialog)
 
 * Custom combobox (add to SettingsDialog)
 * CircularProgressBar
@@ -21,9 +20,13 @@ https://github.com/aelij/WPFContrib
 * Move to StyleCopAnalyzers (instead of StyleCop), check WpfAnalyzers and others
 https://github.com/DotNetAnalyzers
 
+*Check CodeMaid and XAML Styler tools
+https://marketplace.visualstudio.com/items?itemName=SteveCadwallader.CodeMaid
+https://marketplace.visualstudio.com/items?itemName=NicoVermeir.XAMLStyler
+
 
 -- Test -- 
-Code Coverage 85.45% / 88.75%
+Code Coverage 85.32% / 88.95%
 
 
 -- Sample --

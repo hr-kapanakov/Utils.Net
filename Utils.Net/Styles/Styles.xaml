@@ -3,6 +3,7 @@
     <ResourceDictionary.MergedDictionaries>
 
         <ResourceDictionary Source="/Utils.Net;component/Styles/ButtonStyles.xaml"/>
+        <ResourceDictionary Source="/Utils.Net;component/Styles/ExpanderStyles.xaml"/>
         <ResourceDictionary Source="/Utils.Net;component/Styles/GridViewStyles.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
