@@ -68,7 +68,7 @@ namespace Utils.Net.Controls.Tests
             {
                 var showClearButton = testTextBox.ShowClearButton;
                 testTextBox.ShowClearButton = false;
-                var clearButton = testTextBox.FindVisualDescendant<Button>(b => b.Name.Contains("ClearButton"));
+                var clearButton = testTextBox.FindVisualDescendant<System.Windows.Controls.Button>(b => b.Name.Contains("ClearButton"));
                 Assert.AreEqual(clearButton.Visibility, Visibility.Collapsed);
                 testTextBox.ShowClearButton = showClearButton;
                 Assert.AreEqual(testTextBox.ShowClearButton, showClearButton);
@@ -83,7 +83,7 @@ namespace Utils.Net.Controls.Tests
                 testTextBox.Text = "test";
                 Assert.AreEqual(testTextBox.Text, "test");
 
-                var clearButton = testTextBox.FindVisualDescendant<Button>(b => b.Name.Contains("ClearButton"));
+                var clearButton = testTextBox.FindVisualDescendant<System.Windows.Controls.Button>(b => b.Name.Contains("ClearButton"));
                 clearButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent, clearButton));
                 Assert.AreEqual(testTextBox.Text, string.Empty);
             });

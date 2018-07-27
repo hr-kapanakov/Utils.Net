@@ -143,11 +143,11 @@ namespace Utils.Net.Controls.Tests
             {
                 var value = testNumericBox.Value;
 
-                var upButton = testNumericBox.FindVisualDescendant<Button>(b => b.Name.Contains("UpButton"));
+                var upButton = testNumericBox.FindVisualDescendant<System.Windows.Controls.Button>(b => b.Name.Contains("UpButton"));
                 upButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent, upButton));
                 Assert.AreEqual(testNumericBox.Value, value + testNumericBox.Step);
 
-                var downButton = testNumericBox.FindVisualDescendant<Button>(b => b.Name.Contains("DownButton"));
+                var downButton = testNumericBox.FindVisualDescendant<System.Windows.Controls.Button>(b => b.Name.Contains("DownButton"));
                 downButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent, upButton));
                 Assert.AreEqual(testNumericBox.Value, value);
             });

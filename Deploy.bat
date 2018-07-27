@@ -47,6 +47,7 @@ if "%APIKEY%" == "" goto PUSHERROR
 nuget.exe push .\MyUtils.Net.*.symbols.nupkg %APIKEY% -Source https://api.nuget.org/v3/index.json
 SET APIKEY=
 
+echo !!! CREATE A GITHUB RELEASE !!!
 
 goto END
 

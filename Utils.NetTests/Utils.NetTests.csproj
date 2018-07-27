@@ -81,8 +81,13 @@
     <Compile Include="Common\EventArgsTests.cs" />
     <Compile Include="Common\RelayCommandTests.cs" />
     <Compile Include="Common\ValidationRuleTests.cs" />
+    <Compile Include="Controls\ButtonTests.cs" />
+    <Compile Include="Controls\ExpanderTests.cs" />
     <Compile Include="Controls\NumericBoxTests.cs" />
     <Compile Include="Controls\TextBoxTests.cs" />
+    <Compile Include="Controls\ToggleButtonTests.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Controls\ToolTipTests.cs" />
     <Compile Include="Controls\VirtualizingWrapPanelTests.cs" />
     <Compile Include="Converters\CombiningConverterTests.cs" />

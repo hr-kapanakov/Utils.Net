@@ -135,7 +135,12 @@ namespace Utils.Net.Dialogs.Tests
         {
             UITester.Dispatcher.Invoke(() =>
             {
-                var commandButton = testSettingsDialog
+                testSettingsDialog.FindVisualDescendant<TabItem>(ti => ti.Header.Equals("Category")).IsSelected = true;
+            });
+            System.Threading.Thread.Sleep(100);
+            UITester.Dispatcher.Invoke(() =>
+            {
+                    var commandButton = testSettingsDialog
                     .FindVisualDescendant<Button>(b => b.Content != null && b.Content.ToString().Contains("Browse"));
                 commandButton.Command.Execute(null);
 
