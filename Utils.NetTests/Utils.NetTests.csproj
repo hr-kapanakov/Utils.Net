@@ -65,6 +65,7 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.108.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <Choose>
@@ -82,6 +83,7 @@
     <Compile Include="Common\RelayCommandTests.cs" />
     <Compile Include="Common\ValidationRuleTests.cs" />
     <Compile Include="Controls\ButtonTests.cs" />
+    <Compile Include="Controls\ComboBoxTests.cs" />
     <Compile Include="Controls\ExpanderTests.cs" />
     <Compile Include="Controls\NumericBoxTests.cs" />
     <Compile Include="Controls\TextBoxTests.cs" />

@@ -16,10 +16,10 @@ namespace Utils.Net.Controls.Tests
         {
             UITester.Init(typeof(Utils.Net.Sample.App));
             
-            UITester.Dispatcher.Invoke(() => UITester.Get<ComboBox>().SelectedItem = "ListPage");
+            UITester.Dispatcher.Invoke(() => UITester.Get<System.Windows.Controls.ComboBox>().SelectedItem = "ListPage");
             System.Threading.Thread.Sleep(100);
 
-            testTextBox = UITester.Get<TextBox>();
+            testTextBox = UITester.Get<TextBox>(t => t.IsVisible);
         }
 
         [TestMethod]

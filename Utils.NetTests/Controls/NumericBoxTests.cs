@@ -17,7 +17,7 @@ namespace Utils.Net.Controls.Tests
         {
             UITester.Init(typeof(Utils.Net.Sample.App));
             
-            UITester.Dispatcher.Invoke(() => UITester.Get<ComboBox>().SelectedItem = "OthersPage");
+            UITester.Dispatcher.Invoke(() => UITester.Get<System.Windows.Controls.ComboBox>().SelectedItem = "OthersPage");
             System.Threading.Thread.Sleep(100);
 
             testNumericBox = UITester.Get<NumericBox>();

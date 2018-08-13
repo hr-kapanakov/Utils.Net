@@ -14,10 +14,10 @@ namespace Utils.Net.Controls.Tests
         {
             UITester.Init(typeof(Utils.Net.Sample.App));
             
-            UITester.Dispatcher.Invoke(() => UITester.Get<ComboBox>().SelectedItem = "ListPage");
+            UITester.Dispatcher.Invoke(() => UITester.Get<System.Windows.Controls.ComboBox>().SelectedItem = "ListPage");
             System.Threading.Thread.Sleep(100);
 
-            var textBox = UITester.Get<TextBox>();
+            var textBox = UITester.Get<TextBox>(t => t.IsVisible);
             testToolTip = UITester.Dispatcher.Invoke(() => textBox.ToolTip as ToolTip);
             UITester.Dispatcher.Invoke(() => testToolTip.IsOpen = true);
         }
