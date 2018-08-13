@@ -57,6 +57,7 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\ValidationRule.cs" />
     <Compile Include="Controls\Button.cs" />
+    <Compile Include="Controls\ComboBox.cs" />
     <Compile Include="Controls\Expander.cs" />
     <Compile Include="Controls\NumericBox.cs" />
     <Compile Include="Controls\TextBox.cs" />
@@ -118,6 +119,10 @@
     <None Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\Styles\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\Styles\NumericBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -10,7 +10,6 @@ https://github.com/aelij/WPFContrib
 
 * TransparentListView, Animated styles (expander, listview)
 
-* Custom combobox (add to SettingsDialog)
 * CircularProgressBar
 
 * Maybe add colors resource used in different styles / ThemeManager?
@@ -20,13 +19,15 @@ https://github.com/aelij/WPFContrib
 * Move to StyleCopAnalyzers (instead of StyleCop), check WpfAnalyzers and others
 https://github.com/DotNetAnalyzers
 
-*Check CodeMaid and XAML Styler tools
+* Check CodeMaid and XAML Styler tools
 https://marketplace.visualstudio.com/items?itemName=SteveCadwallader.CodeMaid
 https://marketplace.visualstudio.com/items?itemName=NicoVermeir.XAMLStyler
 
+* Tutorial Builder - from UbiLibarary
+
 
 -- Test -- 
-Code Coverage 85.32% / 88.95%
+Code Coverage 85.58% / 89.11%
 
 
 -- Sample --
