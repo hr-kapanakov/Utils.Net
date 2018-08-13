@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Utils.Net.Sample.ViewModels
             public string Column3 { get; set; }
         }
 
-        
+
         public ObservableCollection<ListViewItem> ListViewItems { get; }
 
         public ICollectionView ListViewItemsSource => CollectionViewSource.GetDefaultView(ListViewItems);
@@ -38,7 +39,9 @@ namespace Utils.Net.Sample.ViewModels
 
         public ObservableCollection<CheckableItemViewModel> CheckFilter { get; }
 
-        public string CheckFilterString => string.Join(", ", CheckFilter.Where(c => c.IsChecked == true));
+        public string CheckFilterHint => string.Join(", ", CheckFilter.Where(c => c.IsChecked == true));
+
+        public Func<object, string, bool> CheckFilterFilter => (o, s) => ((CheckableItemViewModel)o).Name.ToLower().Contains(s.ToLower());
 
 
         public ListPageViewModel()
@@ -62,7 +65,7 @@ namespace Utils.Net.Sample.ViewModels
                 civm.IsCheckedChanged += (_, __) =>
                 {
                     ListViewItemsSource.Refresh();
-                    OnPropertyChanged(nameof(CheckFilterString));
+                    OnPropertyChanged(nameof(CheckFilterHint));
                 };
                 CheckFilter.Add(civm);
             }

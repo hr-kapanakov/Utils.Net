@@ -20,7 +20,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
             <ctrls:Button Content="Back" Padding="5 0" Command="{Binding BackwardCommand}"/>
-            <ComboBox ItemsSource="{Binding Controls}" SelectedItem="{Binding SelectedControl}" MinWidth="100" Margin="5 0"/>
+            <ctrls:ComboBox ItemsSource="{Binding Controls}" SelectedItem="{Binding SelectedControl}" MinWidth="100" Margin="5 0"/>
             <ctrls:Button Content="Next" Padding="5 0" Command="{Binding ForwardCommand}"/>
         </StackPanel>
 
