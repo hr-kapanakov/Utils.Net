@@ -25,20 +25,18 @@
         </Grid.RowDefinitions>
 
         <ctrls:TextBox Grid.Column="0" Grid.Row="0" Margin="5" Hint="Search" ShowClearButton="True" mgr:TutorialManager.ItemId="TextBox"
-                       IconSource="http://www.free-icons-download.net/images/search-icon-23710.png"
-                       Text="{Binding TextFilter, UpdateSourceTrigger=PropertyChanged, Delay=300}">
+                       IconSource="/Utils.Net.Sample;component/Images/search.png" Text="{Binding TextFilter, UpdateSourceTrigger=PropertyChanged, Delay=300}">
             <i:Interaction.Behaviors>
                 <i:AutoCompleteBehavior ItemsSource="{Binding AutoCompleteValues}" StringComparison="InvariantCultureIgnoreCase"/>
             </i:Interaction.Behaviors>
             <ctrls:TextBox.ToolTip>
-                <ctrls:ToolTip Label="Search" Hotkey="Ctrl+S" Content="Search text box"
-                               IconSource="http://www.free-icons-download.net/images/search-icon-23710.png"/>
+                <ctrls:ToolTip Label="Search" Hotkey="Ctrl+S" Content="Search text box" IconSource="/Utils.Net.Sample;component/Images/search.png"/>
             </ctrls:TextBox.ToolTip>
         </ctrls:TextBox>
 
         <ctrls:ComboBox Grid.Column="1" Grid.Row="0" Margin="5" IsEditable="True" mgr:TutorialManager.ItemId="ComboBox"
                         ItemsSource="{Binding CheckFilter}" Filter="{Binding CheckFilterFilter}" Hint="{Binding CheckFilterHint}"
-                        IconSource="http://www.dropitproject.com/categories/Eightyshades/Eightyshades12.png">
+                        IconSource="/Utils.Net.Sample;component/Images/categories.png">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>

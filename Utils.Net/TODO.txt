@@ -23,8 +23,6 @@ https://github.com/DotNetAnalyzers
 https://marketplace.visualstudio.com/items?itemName=SteveCadwallader.CodeMaid
 https://marketplace.visualstudio.com/items?itemName=NicoVermeir.XAMLStyler
 
-* Maybe add sample app images to be downloaded in the app
-
 
 -- Test -- 
 Code Coverage 86.26% / 89.80%

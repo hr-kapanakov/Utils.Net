@@ -66,7 +66,7 @@
     <Compile Include="Models\Settings.cs" />
     <Compile Include="ViewModels\ExplorerPageViewModel.cs" />
     <Compile Include="ViewModels\ListPageViewModel.cs" />
-    <Compile Include="ViewModels\OthersPageViewModel.cs"/>
+    <Compile Include="ViewModels\OthersPageViewModel.cs" />
     <Compile Include="Views\ExplorerPage.xaml.cs">
       <DependentUpon>ExplorerPage.xaml</DependentUpon>
     </Compile>
@@ -136,6 +136,13 @@
       <Project>{54e05cdb-e057-42d8-bdbf-c479317b4ebf}</Project>
       <Name>Utils.Net</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\categories.png" />
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\item.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

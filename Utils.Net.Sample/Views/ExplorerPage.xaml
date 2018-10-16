@@ -77,8 +77,7 @@
                                 <ItemsControl ItemsSource="{Binding Labels}" Margin="0 5 0 0"/>
                             </StackPanel>
                         </StackPanel.ToolTip>
-                        <Image Source="http://files.softicons.com/download/holidays-icons/halloween-icons-by-arrioch/png/128/devil.png" 
-                               Height="128" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased"/>
+                        <Image Source="/Utils.Net.Sample;component/Images/item.png" Height="128" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased"/>
                         <TextBlock Text="{Binding Name}" TextAlignment="Center" TextWrapping="WrapWithOverflow"/>
                     </StackPanel>
                 </DataTemplate>
