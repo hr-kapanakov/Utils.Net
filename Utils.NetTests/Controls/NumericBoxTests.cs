@@ -64,6 +64,8 @@ namespace Utils.Net.Controls.Tests
                 testNumericBox.Minimum = 1;
                 testNumericBox.Value = 0;
                 Assert.AreEqual(testNumericBox.Value, 1);
+
+                testNumericBox.Minimum = double.NegativeInfinity;
             });
         }
 
@@ -75,6 +77,8 @@ namespace Utils.Net.Controls.Tests
                 testNumericBox.Maximum = 10;
                 testNumericBox.Value = 11;
                 Assert.AreEqual(testNumericBox.Value, 10);
+
+                testNumericBox.Maximum = double.PositiveInfinity;
             });
         }
 
