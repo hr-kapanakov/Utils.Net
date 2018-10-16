@@ -1,5 +1,6 @@
 ﻿using System;
 using Utils.Net.Common;
+using Utils.Net.Helpers;
 
 namespace Utils.Net.ViewModels
 {
@@ -29,7 +30,7 @@ namespace Utils.Net.ViewModels
             {
                 if (SetPropertyBackingField(ref isChecked, value))
                 {
-                    IsCheckedChanged?.Invoke(this, new EventArgs<bool?>(isChecked));
+                    IsCheckedChanged?.Invoke(this, isChecked.ToEventArgs());
                 }
             }
         }

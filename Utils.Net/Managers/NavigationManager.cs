@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Controls;
 using Utils.Net.Common;
+using Utils.Net.Helpers;
 using Utils.Net.Interfaces;
 using Utils.Net.ViewModels;
 
@@ -37,7 +38,7 @@ namespace Utils.Net.Managers
             {
                 if (SetPropertyBackingField(ref currentControl, value))
                 {
-                    CurrentControlChanged?.Invoke(this, new EventArgs<Control>(CurrentControl));
+                    CurrentControlChanged?.Invoke(this, CurrentControl.ToEventArgs());
                 }
             }
         }

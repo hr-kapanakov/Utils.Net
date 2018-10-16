@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Threading;
+using Utils.Net.Common;
 
 namespace Utils.Net.Helpers
 {
@@ -31,7 +36,7 @@ namespace Utils.Net.Helpers
                     break;
                 }
             }
-            
+
             return target as T;
         }
 
@@ -67,6 +72,7 @@ namespace Utils.Net.Helpers
             return null;
         }
 
+
         /// <summary>
         /// Recursively search for the <see cref="UIElement"/> container corresponding to the given item.
         /// </summary>
@@ -98,6 +104,7 @@ namespace Utils.Net.Helpers
             }
             return null;
         }
+
 
         /// <summary>
         /// Executes the specified <see cref="Action"/> synchronously on the thread the set <see cref="Dispatcher"/> is associated with.
@@ -132,6 +139,101 @@ namespace Utils.Net.Helpers
             else
             {
                 return callback.Invoke();
+            }
+        }
+
+
+        /// <summary>
+        /// Wrap specific data into <see cref="EventArgs{T}"/>.
+        /// </summary>
+        /// <typeparam name="T">Type of the data.</typeparam>
+        /// <param name="value">Value of the data.</param>
+        /// <returns><see cref="EventArgs{T}"/> object wrapping the data.</returns>
+        public static EventArgs<T> ToEventArgs<T>(this T value)
+        {
+            return new EventArgs<T>(value);
+        }
+
+
+        /// <summary>
+        /// Gets all open <see cref="Popup"/>s.
+        /// </summary>
+        /// <returns><see cref="IEnumerable{T}"/> sequence of all open <see cref="Popup"/>s.</returns>
+        public static List<Popup> GetOpenPopups()
+        {
+            return PresentationSource.CurrentSources
+                .OfType<System.Windows.Interop.HwndSource>()
+                .Select(h => h.RootVisual)
+                .OfType<FrameworkElement>()
+                .Select(f => f.Parent)
+                .OfType<Popup>()
+                .Where(p => p.IsOpen)
+                .ToList();
+        }
+
+
+        /// <summary>
+        /// Format text in <see cref="TextBlock"/> by adding it as inlines.
+        /// </summary>
+        /// <remarks>Currently only bold and italic are supported (by adding '*' and '_' respectivily in the text).</remarks>
+        /// <param name="textBlock"><see cref="TextBlock"/> which will show the formated text.</param>
+        /// <param name="text">Text which will be formeted.</param>
+        /// <param name="clear">Clear the <see cref="TextBlock"/> text before adding.</param>
+        public static void Format(this TextBlock textBlock, string text, bool clear = false)
+        {
+            if (clear)
+            {
+                textBlock.Text = string.Empty;
+                textBlock.Inlines.Clear();
+            }
+
+            bool bold = false;
+            bool italic = false;
+
+            int startIdx = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+                // skip non special characters
+                if (text[i] != '*' && text[i] != '_')
+                {
+                    continue;
+                }
+
+                // if there are two '*'/'_' escape the symbol
+                if (i < text.Length - 1 && text[i] == text[i + 1])
+                {
+                    i++;
+                    continue;
+                }
+
+                // if there is a text to be added (between special characters)
+                if (i - startIdx > 0)
+                {
+                    var textPart = text.Substring(startIdx, i - startIdx).Replace("**", "*").Replace("__", "_");
+                    var run = new Run(textPart)
+                    {
+                        FontWeight = bold ? FontWeights.Bold : FontWeights.Normal,
+                        FontStyle = italic ? FontStyles.Italic : FontStyles.Normal
+                    };
+                    textBlock.Inlines.Add(run);
+                }
+                startIdx = i + 1;
+
+                // toggle the style based on character
+                if (text[i] == '*')
+                {
+                    bold = !bold;
+                }
+                if (text[i] == '_')
+                {
+                    italic = !italic;
+                }
+            }
+
+            // add the rest of the text
+            if (startIdx < text.Length - 1)
+            {
+                textBlock.Inlines.Add(new Run(text.Substring(startIdx).Replace("**", "*").Replace("__", "_")));
             }
         }
     }

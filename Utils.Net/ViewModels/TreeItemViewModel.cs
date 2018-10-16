@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Utils.Net.Common;
 using Utils.Net.Extensions;
+using Utils.Net.Helpers;
 
 namespace Utils.Net.ViewModels
 {
@@ -27,7 +28,7 @@ namespace Utils.Net.ViewModels
             {
                 if (SetPropertyBackingField(ref isExpanded, value))
                 {
-                    IsExpandedChanged?.Invoke(this, new EventArgs<bool>(isExpanded));
+                    IsExpandedChanged?.Invoke(this, isExpanded.ToEventArgs());
                 }
             }
         }
@@ -82,9 +83,9 @@ namespace Utils.Net.ViewModels
 
 
         /// <summary>
-        /// Execute <see cref="Action"/> and propagate it through the children.
+        /// Execute <see cref="Action{T}"/> and propagate it through the children.
         /// </summary>
-        /// <param name="action"></param>
+        /// <param name="action"><see cref="Action{T}"/> that will be propagated.</param>
         public void Propagate(Action<TreeItemViewModel<T>> action)
         {
             action.Invoke(this);
