@@ -66,9 +66,7 @@
     <Compile Include="Models\Settings.cs" />
     <Compile Include="ViewModels\ExplorerPageViewModel.cs" />
     <Compile Include="ViewModels\ListPageViewModel.cs" />
-    <Compile Include="ViewModels\OthersPageViewModel.cs">
-      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
-    </Compile>
+    <Compile Include="ViewModels\OthersPageViewModel.cs"/>
     <Compile Include="Views\ExplorerPage.xaml.cs">
       <DependentUpon>ExplorerPage.xaml</DependentUpon>
     </Compile>
@@ -107,7 +105,6 @@
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
-      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:Utils.Net.Sample.ViewModels"
              xmlns:ctrls="http://schemas.utils.net/controls"
              xmlns:common="http://schemas.utils.net/common"
+             xmlns:mgr="http://schemas.utils.net/managers"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -16,26 +17,28 @@
     <Border BorderThickness="1" BorderBrush="Gray" Margin="5">
         <WrapPanel Orientation="Horizontal" Margin="5">
 
-            <ctrls:Button Content="Simple Input Dialog" Margin="5" Padding="3"
-                          Command="{Binding SimpleInputDialogCommand}"/>
+            <StackPanel Orientation="Horizontal" mgr:TutorialManager.ItemId="Dialogs">
+                <ctrls:Button Content="Simple Input Dialog" Margin="5" Padding="3"
+                              Command="{Binding SimpleInputDialogCommand}"/>
 
-            <ctrls:Button Content="Progress Dialog" Margin="5" Padding="3"
-                          Command="{Binding ProgressDialogCommand}"/>
+                <ctrls:Button Content="Progress Dialog" Margin="5" Padding="3"
+                              Command="{Binding ProgressDialogCommand}"/>
 
-            <ctrls:Button Content="Settings Dialog" Margin="5" Padding="3"
-                          Command="{Binding SettingsDialogCommand}"/>
+                <ctrls:Button Content="Settings Dialog" Margin="5" Padding="3"
+                              Command="{Binding SettingsDialogCommand}"/>
+            </StackPanel>
 
-            <ctrls:NumericBox Margin="5" 
+            <ctrls:NumericBox Margin="5" mgr:TutorialManager.ItemId="NumericBox"
                               Value="{Binding Number}" StringFormat="0.0" Minimum="0" Maximum="100" Step="0.1"/>
 
             <ctrls:Button Content="Link Button Style" Margin="5" VerticalAlignment="Center" common:RelativeFontSizeHelper.RelativeFontSize="2"
-                          Style="{StaticResource LinkButtonStyle}"/>
+                          Style="{StaticResource LinkButtonStyle}" mgr:TutorialManager.ItemId="LinkButton"/>
 
-            <ctrls:ToggleButton Content="https://image.flaticon.com/icons/png/512/31/31117.png"
+            <ctrls:ToggleButton Content="https://image.flaticon.com/icons/png/512/31/31117.png" mgr:TutorialManager.ItemId="ImageButton"
                           Margin="5" Height="25" Padding="3" ToolTip="Image Button Style"
                           Style="{StaticResource ImageButtonStyle}"/>
 
-            <TextBox Margin="5" Width="100" Height="25" VerticalContentAlignment="Center"
+            <TextBox Margin="5" Width="100" Height="25" VerticalContentAlignment="Center" mgr:TutorialManager.ItemId="ValidatedTextBox"
                      ToolTip="{Binding RelativeSource={RelativeSource self}, Path=(Validation.Errors)[0].ErrorContent}">
                 <TextBox.Resources>
                     <common:BindingProxy x:Key="proxy" Data="{Binding}"/>
@@ -53,7 +56,8 @@
                 </TextBox.Text>
             </TextBox>
 
-            <ctrls:Expander Header="Expander" ToggleButtonTemplate="{StaticResource PlusExpanderToggleButtonTemplate}">
+            <ctrls:Expander Header="Expander" ToggleButtonTemplate="{StaticResource PlusExpanderToggleButtonTemplate}"
+                            mgr:TutorialManager.ItemId="Expander">
                 <TextBlock Text="Test"/>
             </ctrls:Expander>
 

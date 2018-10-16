@@ -16,6 +16,7 @@ namespace Utils.Net.Sample
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<NavigationManager>().As<INavigationManager>().SingleInstance();
+            builder.RegisterType<TutorialManager>().As<ITutorialManager>().SingleInstance();
             Container = builder.Build();
         }
     }
