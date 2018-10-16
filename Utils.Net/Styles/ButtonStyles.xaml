@@ -17,7 +17,9 @@
                             BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Padding="{TemplateBinding Padding}">
-                        <Image Source="{TemplateBinding Content, Converter={StaticResource StringToUriConverter}}" />
+                        <Image Source="{TemplateBinding Content, Converter={StaticResource StringToUriConverter}}"
+                               RenderOptions.BitmapScalingMode="Fant" 
+                               RenderOptions.EdgeMode="Aliased"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Button.IsDefaulted" Value="True">
@@ -70,5 +72,31 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <ControlTemplate x:Key="CloseButtonTemplate" TargetType="{x:Type Button}">
+        <Grid Background="Transparent">
+            <Path Margin="{TemplateBinding Padding}"
+                  Stroke="{TemplateBinding Foreground}"
+                  StrokeThickness="2.5"
+                  StrokeStartLineCap="Round"
+                  StrokeEndLineCap="Round"
+                  Stretch="Uniform"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigure StartPoint="0,0">
+                                <LineSegment Point="25,25"/>
+                            </PathFigure>
+                            <PathFigure StartPoint="0,25">
+                                <LineSegment Point="25,0"/>
+                            </PathFigure>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Grid>
+    </ControlTemplate>
 
 </ResourceDictionary>

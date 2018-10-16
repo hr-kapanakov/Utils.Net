@@ -30,6 +30,7 @@
                                    Opacity="0.8"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
+                                   RenderOptions.EdgeMode="Aliased"
                                    RenderOptions.BitmapScalingMode="Fant"
                                    Height="{Binding ActualHeight, ElementName=hint}"
                                    Source="{TemplateBinding IconSource}"/>
@@ -59,34 +60,8 @@
                                     HorizontalAlignment="Right" 
                                     VerticalAlignment="Center"
                                     Width="{Binding ActualHeight, ElementName=hint}"
-                                    Height="{Binding ActualHeight, ElementName=hint}">
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Grid Background="Transparent">
-                                            <Path Margin="{TemplateBinding Padding}"
-                                                  Stroke="{TemplateBinding Foreground}"
-                                                  StrokeThickness="2.5"
-                                                  StrokeStartLineCap="Round"
-                                                  StrokeEndLineCap="Round"
-                                                  Stretch="Uniform"
-                                                  VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center">
-                                                <Path.Data>
-                                                    <PathGeometry>
-                                                        <PathGeometry.Figures>
-                                                            <PathFigure StartPoint="0,0">
-                                                                <LineSegment Point="25,25"/>
-                                                            </PathFigure>
-                                                            <PathFigure StartPoint="0,25">
-                                                                <LineSegment Point="25,0"/>
-                                                            </PathFigure>
-                                                        </PathGeometry.Figures>
-                                                    </PathGeometry>
-                                                </Path.Data>
-                                            </Path>
-                                        </Grid>
-                                    </ControlTemplate>
-                                </Button.Template>
+                                    Height="{Binding ActualHeight, ElementName=hint}"
+                                    Template="{DynamicResource CloseButtonTemplate}">
                             </Button>
                         </Grid>
                     </Border>

@@ -194,6 +194,11 @@ namespace Utils.Net.Controls
         // https://gist.github.com/mariodivece/0bbade976aea8d416d52
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (!IsEditable)
+            {
+                return;
+            }
+
             var searchText = textBox.Text;
             if (selection)
             {

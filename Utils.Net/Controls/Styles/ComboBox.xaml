@@ -32,6 +32,9 @@
             </Grid>
         </Border>
         <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" TargetName="splitBorder" Value="0.56"/>
+            </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Fill" TargetName="arrow" Value="Black"/>
                 <Setter Property="BorderBrush" TargetName="splitBorder" Value="#FF7EB4EA"/>
@@ -147,6 +150,7 @@
                         </Trigger>
                         <Trigger Property="IsEditable" Value="False">
                             <Setter TargetName="border" Property="Background" Value="#FFE5E5E5"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#707070"/>
                             <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="PART_ToggleButton" Property="BorderThickness" Value="0"/>
                             <Setter TargetName="PART_ToggleButton" Property="Grid.Column" Value="0"/>
